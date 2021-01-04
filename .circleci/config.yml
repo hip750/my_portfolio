@@ -16,8 +16,8 @@ jobs:
           command: |
             docker-compose up -d
             docker-compose exec portfolio bash
-            bundle exec rails db:create db:schema:load --trace
-            bundle exec rails db:migrate
+            bundle exec rails db:create
+            bundle exec rails db:schema:load
       - run:
           name: Run rspec
           command: | 
