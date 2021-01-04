@@ -14,6 +14,8 @@ jobs:
       - run:
           name: Setup database
           command: |
+            docker-compose up -d
+            docker-compose exec portfolio bash
             bundle exec rails db:create db:schema:load --trace
             bundle exec rails db:migrate
       - run:
