@@ -31,7 +31,7 @@ RUN apt-get update                                                              
     libxml2-dev                                                                                                                         \
     libxslt-dev                                                                                                                         \
     libc6-dev                                                                                                                           \
-    nodejs=14.15.4-1nodesource1                                                                                                         \
+    nodejs                                                                                                                              \
     yarn                                                                                                                                \
     zip                                                                                                                                 \
     google-chrome-stable                                                                                                                \
