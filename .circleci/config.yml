@@ -16,11 +16,10 @@ jobs:
           command: |
             set -x
             docker-compose up -d
-            docker exec portfolio_portfolio_1 curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3333
+            docker-compose exec portfolio bash
       - run:
           name: Setup database
           command: |
-            docker-compose exec portfolio bash
             bundle exec rails db:create
             bundle exec rails db:schema:load
       - run:
@@ -60,3 +59,5 @@ workflows:
     jobs:
       - rspec
       - rubocop
+        requires:
+          - rubocop
