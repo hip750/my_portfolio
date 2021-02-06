@@ -24,6 +24,7 @@ jobs:
       - run:
           name: Run rspec
           command: | 
+            docker-compose exec portfolio bash
             bundle exec rails spec
 
   rubocop:
