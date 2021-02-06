@@ -16,7 +16,7 @@ jobs:
           command: |
             set -x
             docker-compose up -d
-            docker exec portfolio_portfolio_1 curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3333
+            docker exec portfolio_app curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3333
       - run:
           name: Setup database
           command: |
@@ -60,3 +60,4 @@ workflows:
     jobs:
       - rspec
       - rubocop
+      
