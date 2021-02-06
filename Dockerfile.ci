@@ -2,8 +2,6 @@ FROM ruby:2.5.3
 
 ENV ENTRYKIT_VERSION 0.4.0
 
-WORKDIR /portfolio
-
 RUN apt-get update                                                                                                                      \
     && apt-get install                                                                                                                  \
     openssl                                                                                                                             \
