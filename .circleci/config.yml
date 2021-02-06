@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Setup database
           command: |
-            docker-compose exec portfolio bash -c 'yes n | bundle exec rails db:create db:schema:load'
+            docker-compose exec portfolio bash -c 'yes n | bundle exec rails db:create db:migrate db:schema:load'
       - run:
           name: Run rspec
           command: | 
