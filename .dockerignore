@@ -5,7 +5,6 @@ public/assets/*
 
 ## Environment normalisation:
 .bundle
-vendor/bundle
 .git*
 
 ## log
