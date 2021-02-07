@@ -1,15 +1,21 @@
-require 'rails_helper'
+RSpec.describe ApplicationHelper, type: :helper do
+  describe "#full_title(page_title)" do
+    context "page_titleが存在する場合" do
+      it "page_title + BASE_TITLE を表示" do
+        expect(full_title("Home")).to eq "Home | Medpot"
+      end
+    end
 
-# Specs in this file have access to a helper object that includes
-# the StaticPagesHelper. For example:
-#
-# describe StaticPagesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe StaticPagesHelper, type: :helper do
-  
+    context "page_titleがnilの場合" do
+      it "BASE_TITLE のみを表示" do
+        expect(full_title(nil)).to eq "Medpot"
+      end
+    end
+
+    context "page_titleがemptyの場合" do
+      it "BASE_TITLE のみを表示" do
+        expect(full_title("")).to eq "Medpot"
+      end
+    end
+  end
 end
