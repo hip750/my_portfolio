@@ -1,13 +1,6 @@
 version: '3'
 
 services:
-  redis:
-    image: "redis:latest"
-    networks:
-      - default
-    ports:
-      - "6666:6379"
-
   mysql:
     image: mysql:8.0
     environment:
@@ -30,7 +23,6 @@ services:
       REDIS_URL: "redis://redis:6666"
     depends_on:
       - mysql
-      - redis
     networks:
       - default
     command: bundle exec rails server -b 0.0.0.0
