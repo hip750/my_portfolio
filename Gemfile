@@ -15,7 +15,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass', '3.4.1'
 gem 'font-awesome-rails'
+gem 'dotenv-rails'
 gem 'devise'
+gem 'omniauth', '1.9.1'
 gem 'omniauth-twitter'
 
 group :development, :test do
