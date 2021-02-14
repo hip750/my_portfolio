@@ -1,10 +1,17 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :timeoutable, :trackable,
-         :omniauthable, omniauth_providers: [:twitter]
+         :recoverable, :rememberable, :lockable,
+         :timeoutable, :trackable, :omniauthable,
+         omniauth_providers: [:twitter]
+
+  validates :name,  presence: true, length: { maximum: 50 },
+                    uniqueness: true
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: Const::VALID_EMAIL_REGEX },
+                    uniqueness: true
+  validates :password, presence: true, length: { minimum: 6 },
+                       # format: { with: Const::VALID_PASSWORD_REGEX },
+                       allow_nil: true
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
@@ -21,6 +28,14 @@ class User < ApplicationRecord
       end
     else
       super
+    end
+  end
+
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.name = "hajime"
+      user.password = SecureRandom.urlsafe_base64
+      user.confirmed_at = Time.now
     end
   end
 end

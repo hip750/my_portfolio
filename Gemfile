@@ -19,6 +19,8 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'omniauth', '1.9.1'
 gem 'omniauth-twitter'
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

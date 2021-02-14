@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   get  '/privacy_policy' => 'static_pages#privacy_policy'
   get  '/contact' => 'static_pages#contact'
 
-  devise_for :users, controllers: { :omniauth_callbacks => "omniauth_callbacks" }
-  get  'users/new'
-  get  'users/show'
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  
+  devise_scope :user do
+    post '/users/guest_sign_in' => 'sessions#new_guest'
+  end
 
+  get  resources :users, only: [:show]
 end
