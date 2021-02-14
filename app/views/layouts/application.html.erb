@@ -12,8 +12,8 @@
   <body>
     <%= render 'layouts/header' %>
     <%= render 'devise/shared/notifications' %>
-    <%= render "devise/shared/error_messages", resource: resource %>
     <div class="container">
+      <%= render "devise/shared/error_messages", resource: resource %>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>

@@ -1,6 +1,7 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 /* mixins, variables, etc. */
 
@@ -319,4 +320,12 @@ form {
 }
 .nlock-link {
   margin:  5px 0;
+}
+
+/* users show */
+
+.user_info {
+  border: $gray-medium-light solid 2px ;
+  border-radius: 5px;
+  margin-top: 40px;
 }
