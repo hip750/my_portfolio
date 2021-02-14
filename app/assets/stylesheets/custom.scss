@@ -112,11 +112,12 @@ footer {
 #error_explanation {
   width: 80%;
   background: #ffb5b57a;
+  border: #7a5353 solid 1px;
   border-radius: 5px;
   padding: 10px;
   margin: 20px auto;
   h2, li {
-    color: $gray-light;
+    color: #924444;
   }
 }
 
@@ -320,6 +321,38 @@ form {
 }
 .nlock-link {
   margin:  5px 0;
+}
+
+/* sidebar */
+
+aside {
+  section.user_name {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 10px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
 }
 
 /* users show */
