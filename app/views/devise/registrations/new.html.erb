@@ -5,7 +5,7 @@
       <form>
         <div class="form-item">
           <%= f.label :name %>
-          <%= f.text_field :name %>
+          <%= f.text_field :name, autofocus: true, placeholder: "medpot" %>
         </div>
 
         <div class="form-item">
@@ -27,7 +27,7 @@
         </div>
 
         <div class="submit-panel">
-          <%= f.submit "登録 ", class: "submit-button" %>
+          <%= f.submit "サインアップ", class: "submit-button" %>
         </div>
 
         <p class="or">───────── or ──────────</p>

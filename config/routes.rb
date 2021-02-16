@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   
   devise_scope :user do
     post '/users/guest_sign_in' => 'sessions#new_guest'
+    get  '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  get  resources :users, only: [:show]
+  resources :users, only: [:show]
 end

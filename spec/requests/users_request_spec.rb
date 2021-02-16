@@ -1,48 +1,34 @@
-require 'rails_helper'
-
 RSpec.describe "Users", type: :request do
-  describe "UserAuthentications" do
+  describe "UserSingnup" do
     let(:user) { create(:user) }
     let(:user_params) { attributes_for(:user) }
     let(:invalid_user_params) { attributes_for(:user, name: "") }
 
-    describe 'POST #create' do
-      before do
-        ActionMailer::Base.deliveries.clear
+    describe 'GET #new' do
+      it "リクエストが成功すること" do
+        get new_user_registration_path
+        expect(response).to have_http_status "200"
       end
+    end
 
-      context 'パラメータが妥当な場合' do
-        it 'リクエストが成功すること' do
-          post user_registration_path, params: { user: user_params }
-          expect(response.status).to eq 302
-        end
-
-        # it '認証メールが送信されること' do
-        #   post user_registration_path, params: { user: user_params }
-        #   expect(ActionMailer::Base.deliveries.size).to eq 1
-        # end
-
+    describe 'POST #create' do
+      context "正しいパラメーターの場合" do   
         it 'createが成功すること' do
           expect do
             post user_registration_path, params: { user: user_params }
           end.to change(User, :count).by 1
         end
 
-        it 'リダイレクトされること' do
+        it '正しいページにリダイレクトされること' do
           post user_registration_path, params: { user: user_params }
           expect(response).to redirect_to user_path(user.id - 1)
         end
       end
-
-      context 'パラメータが不正な場合' do
-        it 'リクエストが成功すること' do
+      
+      context "不正なパラメーターの場合" do
+        it '新規登録ページにエラーが表示されること' do
           post user_registration_path, params: { user: invalid_user_params }
-          expect(response.status).to eq 200
-        end
-
-        it '認証メールが送信されないこと' do
-          post user_registration_path, params: { user: invalid_user_params }
-          expect(ActionMailer::Base.deliveries.size).to eq 0
+          expect(response.body).to include 'エラーが発生したため ユーザ は保存されませんでした。'
         end
 
         it 'createが失敗すること' do
@@ -50,18 +36,13 @@ RSpec.describe "Users", type: :request do
             post user_registration_path, params: { user: invalid_user_params }
           end.not_to change(User, :count)
         end
-
-        it 'エラーが表示されること' do
-          post user_registration_path, params: { user: invalid_user_params }
-          expect(response.body).to include 'エラーが発生したため ユーザ は保存されませんでした。'
-        end
       end
     end
 
     describe 'GET #show' do
       context 'ユーザーが存在する場合' do
         it "アクセスが成功すること" do
-          get user_path(user.id)
+          get user_path(user)
           expect(response.status).to eq 302
         end
       end
