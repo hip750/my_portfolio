@@ -12,7 +12,7 @@ RSpec.describe "Users", type: :request do
     end
 
     describe 'POST #create' do
-      context "正しいパラメーターの場合" do   
+      context "正しいパラメーターの場合" do
         it 'createが成功すること' do
           expect do
             post user_registration_path, params: { user: user_params }
@@ -24,7 +24,7 @@ RSpec.describe "Users", type: :request do
           expect(response).to redirect_to user_path(user.id - 1)
         end
       end
-      
+
       context "不正なパラメーターの場合" do
         it '新規登録ページにエラーが表示されること' do
           post user_registration_path, params: { user: invalid_user_params }

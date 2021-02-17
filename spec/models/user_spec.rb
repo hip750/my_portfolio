@@ -1,17 +1,19 @@
 RSpec.describe User, type: :model do
   let(:user) { create(:user) }
-  let(:other_user) { create(:other_user, name: "other_user",
-                                         email: "other_user@example.com",
-                                         password: password) }
+  let(:other_user) do
+    create(:other_user, name: "other_user",
+                        email: "other_user@example.com",
+                        password: password)
+  end
   let(:user_params) { attributes_for(:user) }
   let(:invalid_user_params) { attributes_for(:user, name: "") }
 
-  #valid
+  # valid
   it "name,email,passwordが有効であること" do
     expect(user).to be_valid
   end
 
-  #present
+  # present
   it "nameがなければ無効であること" do
     user.name = " "
     expect(user).to be_invalid
@@ -27,7 +29,7 @@ RSpec.describe User, type: :model do
     expect(user).to be_invalid
   end
 
-  #uniqueness
+  # uniqueness
   it "重複したnameは無効であること" do
     duplicate_user = user.dup
     duplicate_user.name = user.name.upcase
@@ -42,7 +44,7 @@ RSpec.describe User, type: :model do
     expect(duplicate_user).to be_invalid
   end
 
-  #length
+  # length
   it "nameは50文字以下であること" do
     user.name = "a" * 51
     expect(user).to be_invalid
@@ -52,7 +54,7 @@ RSpec.describe User, type: :model do
     user.email = "a" * 244 + "@example.com"
     expect(user).to be_invalid
   end
-  
+
   it "passwordは6文字以上であること" do
     user.password = user.password_confirmation = "a" * 5
     expect(user).to be_invalid

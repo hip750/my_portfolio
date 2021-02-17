@@ -6,11 +6,11 @@
 #   scenario '正しく新規登録できること' do
 #     visit new_user_registration_path
 #     expect(page).to have_current_path new_user_registration_path
-#     fill_in "ユーザーネーム", with: "Foobar"
+#     fill_in "ユーザーネーム", with: "foobar"
 #     fill_in "メールアドレス", with: "hogehoge@example.com"
 #     fill_in "パスワード", with: "testuser"
 #     fill_in "パスワード(確認用)", with: "testuser"
-#     find('.submit-button').click
+#     click_button "サインアップ"
 #     expect(current_path).to eq user_path(user)
 #     expect(page).to have_content 'アカウント登録が完了しました。'
 #   end

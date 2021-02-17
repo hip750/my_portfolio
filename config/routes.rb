@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   
   devise_scope :user do
-    post '/users/guest_sign_in' => 'sessions#new_guest'
-    get  '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users/guest_sign_in' => 'sessions#new_guest'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
   resources :users, only: [:show]

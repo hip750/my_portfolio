@@ -38,6 +38,7 @@ group :development, :test do
   gem 'annotate'
   gem 'rails-erd'
   gem 'rubocop-airbnb', require: false
+  gem 'launchy'
 end
 
 group :development do

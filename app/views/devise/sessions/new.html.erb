@@ -29,7 +29,7 @@
         <div class="twitter-panel">
           <%- resource_class.omniauth_providers.each do |provider| %>
             <%= link_to omniauth_authorize_path(resource_name, provider), class: "twitter-button" do %>
-              <i class="fa fa-twitter fa-lg"></i> Twitterでログイン
+              <i class="fab fa-twitter fa-lg"></i>  Twitterでログイン
             <% end %>
           <% end %>
         </div>
@@ -37,7 +37,7 @@
         <p class="or">───────── or ──────────</p>
 
         <div class="guest-panel">
-          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "guest-button" %>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "guest-button" %>
         </div>
 
       </form>
