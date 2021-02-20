@@ -296,6 +296,9 @@ form {
   font-size: 1em;
   padding: 2em 0;
   text-align: center;
+  div {
+    margin:  5px 0;
+  }
 }
 
 .form-footer a {
@@ -308,9 +311,6 @@ form {
   border-bottom: 1px dotted #8c8c8c;
 }
 
-.login-link {
-  margin:  5px 0;
-}
 .signup-link {
   margin:  5px 0;
 }
@@ -364,4 +364,104 @@ aside {
   border: $gray-medium-light solid 2px ;
   border-radius: 5px;
   margin-top: 40px;
+  p {
+    margin-left: 20px;
+  }
+}
+
+/* users edit */
+
+.user-edit-table {
+  table-layout: fixed;
+  width: 100%;
+  border:1px solid #ddd;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  th {
+    width: 30%;
+    background:lightblue;
+    padding:10px;
+    border:1px solid #666;
+  }
+  td {
+    width: 70%;
+    padding:10px 20px;
+    border:1px solid #666;
+  }
+  p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 5px 0;
+  }
+}
+
+.last-name-layout {
+  label {
+    &:nth-of-type(1) {
+      margin-right: 15px;
+    }
+    &:nth-of-type(2) {
+      margin: 0 22px 5px 7px;
+    }
+  }
+  input {
+    &:nth-of-type(1) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.first-name-layout {
+  label {
+    &:nth-of-type(1) {
+      margin-right: 15px;
+    }
+    &:nth-of-type(2) {
+      margin: 0 22px 5px 7px;
+    }
+  }
+  input {
+    &:nth-of-type(odd) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.col-sm-9 {
+  padding: initial;
+}
+
+.update-link {
+  text-align: right;
+}
+
+.update-panel {
+  text-align: center;
+}
+
+.update-button {
+  background: #e77784;
+  box-shadow: 0 4px 0 #e91f37;
+  position: relative;
+  border: none;
+  color: #fff;
+  height: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  letter-spacing: 0.05em;
+  transition: background 0.3s ease-in-out;
+  width: 30%;
+  border-radius: 5px;
+  outline: none
+}
+
+.update-button:active {
+  top: 2px;
+	box-shadow: 0 2px 0 #e91f37;
+}
+
+.update-button:hover {
+  background: #e78c96;
 }

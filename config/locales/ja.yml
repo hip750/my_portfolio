@@ -4,9 +4,21 @@ ja:
       user:
         name: ユーザーネーム
         email: メールアドレス
-        gender: 性別
-        web_site: ウェブサイト
-        phone_number: 電話番号
-        introduction: 施設紹介
         password: パスワード
         password_confirmation: パスワード(確認用)
+        first_name: 名
+        last_name: 姓
+        first_name_ruby: メイ
+        last_name_ruby: セイ
+        gender: 性別
+        birthday: 生年月日
+        age: 年齢
+        license: 所有資格
+        career: 経歴
+        postcode: 郵便番号
+        prefecture_code: 都道府県
+        city: 市区町村
+        street: それ以降の住所
+        phone_number: 電話番号
+        work_times: 勤務可能日・時間
+        self_promotion: 自己PR

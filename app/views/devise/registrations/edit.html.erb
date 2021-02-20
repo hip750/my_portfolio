@@ -1,43 +1,117 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<h1>プロフィールの編集</h1>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <table class="user-edit-table">
+    <tr>
+      <th><%= f.label :name %></th><br />
+      <td><%= f.text_field :name, autofocus: true, style: "width: 196px;" %></td>
+    </tr>
+    <tr>
+      <th rowspan="2"><label>名前</label></th>
+      <td>
+        <div class="last-name-layout col-sm-9 form-inline">
+          <label>セイ</label><%= f.text_field :last_name_ruby, autofocus: true, placeholder: "ヤマダ"  %><br />
+          <label>姓</label><%= f.text_field :last_name, autofocus: true, placeholder: "山田" %>
+        </div>  
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="first-name-layout col-sm-9 form-inline">
+          <label>メイ</label><%= f.text_field :first_name_ruby, autofocus: true, placeholder: "タロウ" %><br />
+          <label>名</label><%= f.text_field :first_name, autofocus: true, placeholder: "太郎" %>
+        </div>  
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :email %></th>
+      <td><%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 366px;", placeholder: "medpot@example.com" %></td>
+    </tr>
+    <tr>
+      <th><label class="control-label">性別</label></th>
+      <td>
+        <label><%= f.radio_button :gender, "男性" %> 男性 </label>
+        <label><%= f.radio_button :gender, "女性" %> 女性 </label>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :birthday %></th>
+      <td><%= f.date_select :birthday,  use_month_numbers: true,
+                                    start_year: 1930,
+                                    end_year: (Time.now.year - 10),
+                                    default: Date.new(1990, 1, 1) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :age %></th><br />
+      <td><%= f.select :age, (18..100).map { |n| [n, n] }, include_blank: "選択してください" %></td>
+    </tr>
+    <tr>
+      <th><strong>住所</strong></th>
+      <td>
+        <%= f.label :postcode %><br />
+        <%= f.text_field :postcode, autofocus: true, placeholder: "1231234", id: "user_postcode" %><br /><br />
+        <%= f.label :prefecture_code %><br />
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, id: "user_prefecture_code" %><br /><br />
+        <%= f.label :city %><br />
+        <%= f.text_field :city, autofocus: true, style: "width: 366px;", id: "user_city" %><br /><br />
+        <%= f.label:street %><br />
+        <%= f.text_field :street, autofocus: true, style: "width: 366px;", id: "user_street" %><br /><br />
+      </td> 
+    </tr>
+    <tr>
+      <th><%= f.label :phone_number %></th>
+      <td><%= f.text_field :phone_number, autofocus: true, placeholder: "09012345678" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :license %></th>
+      <td><%= f.text_area :license, rows: "5", cols: "50", placeholder: "・正看護師"  %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :career %></th>
+      <td><%= f.text_area :career, rows: "5", cols: "50", placeholder: "病院勤務：5年"  %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :work_times %></th>
+      <td><%= f.text_area :work_times, rows: "5", cols: "50", placeholder: "平日:10 〜 16時"  %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :self_promotion %></th>
+      <td><%= f.text_area :self_promotion, rows: "10", cols: "60" %></td>
+    </tr>
+  </table>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <table class="user-edit-table">
+    <tr>
+      <th>パスワードの変更</th>
+      <td>
+        <p>現在のパスワード</p>
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <p>新しいパスワード</p>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+        <p>パスワード (確認用)</p>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </td>
+    </tr>
+  </table>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="update-panel">
+    <%= f.submit "プロフィールを更新", class: "update-button" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+  <div class="form-footer">
+    <%= link_to "> 退会する", registration_path(resource_name), 
+        data: { confirm: "アカウントを削除してもよろしいですか" },
+        method: :delete %>
+  </div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="back">
+  <%= link_to :back do %>
+    <i class="fas fa-chevron-left"></i> もどる
+  <% end %>
+</div>

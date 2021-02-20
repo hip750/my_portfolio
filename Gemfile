@@ -23,6 +23,7 @@ gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
 gem 'webpacker', '4.0.7'
 gem 'jquery-rails'
+gem 'jp_prefecture'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -38,7 +39,6 @@ group :development, :test do
   gem 'annotate'
   gem 'rails-erd'
   gem 'rubocop-airbnb', require: false
-  gem 'launchy'
 end
 
 group :development do

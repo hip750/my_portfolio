@@ -4,13 +4,20 @@ Rails.application.routes.draw do
   get  '/terms_of_service' => 'static_pages#terms_of_service'
   get  '/privacy_policy' => 'static_pages#privacy_policy'
   get  '/contact' => 'static_pages#contact'
-
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  
+  devise_for :users, controllers: { 
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
+  }
   
   devise_scope :user do
-    get '/users/guest_sign_in' => 'sessions#new_guest'
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+    post '/users/guest_sign_in' => 'users/sessions#new_guest'
+    get  '/users/sign_out' => 'devise/sessions#destroy'
 
+  end
+  
   resources :users, only: [:show]
+
 end

@@ -8,6 +8,11 @@
         <%= @user.name %>
       </h1>
     </section>
+    <div class="update-link">
+      <%= link_to edit_user_registration_path(@user) do %>
+        <i class="fas fa-user-edit fa-2x"></i>
+      <% end %>
+    </div>
     <section class="name">
       <div class="name-title">
         <i class="fa fa-smile fa-lg"></i> ニックネーム
@@ -18,8 +23,8 @@
       <div class="full_name-title">
         <i class="fa fa-user fa-lg"></i> 名前
       </div>
-      <p>カナ <%= @user.last_name_ruby %> <%= @user.first_name_ruby %></p>
-      <p>漢字 <%= @user.last_name %> <%= @user.first_name %></p>
+      <p>カナ：<%= @user.last_name_ruby %> <%= @user.first_name_ruby %></p>
+      <p>漢字：<%= @user.last_name %> <%= @user.first_name %></p>
     </section>
     </section>
     <section class="email">
@@ -53,8 +58,8 @@
       <div class="user-address-title">
         <i class="fa fa-map-marker-alt fa-lg"></i> 住所
       </div>
-      <p>〒<%= @user.zip_code %></p>
-      <p><%= @user.prefecture %><%= @user.city %><%= @user.town %></p>
+      <p>〒<%= @user.postcode %></p>
+      <p><%= @user.prefecture_name %><%= @user.city %><%= @user.street %></p>
     </section>
     </section>
     <section class="phone-number">
@@ -91,5 +96,6 @@
       </div>
       <p><%= @user.self_promotion %></p>
     </section>
+    <div></div>
   </aside>
 </div>

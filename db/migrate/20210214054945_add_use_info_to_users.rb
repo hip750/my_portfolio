@@ -9,10 +9,10 @@ class AddUseInfoToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :age, :integer
     add_column :users, :license, :string
     add_column :users, :career, :text
-    add_column :users, :zip_code, :string
-    add_column :users, :prefecture, :string
+    add_column :users, :postcode, :string
+    add_column :users, :prefecture_code, :string
     add_column :users, :city, :string
-    add_column :users, :town, :string
+    add_column :users, :street, :string
     add_column :users, :phone_number, :string
     add_column :users, :self_promotion, :text
     add_column :users, :work_times, :text
