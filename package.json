@@ -1,10 +1,10 @@
 {
+  "license": "UNLICENSED",
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "bootstrap": "3.4.1",
-    "jquery": "3.4.1",
-    "license": "UNLICENSED"
+    "jquery": "3.4.1"
   }
 }
