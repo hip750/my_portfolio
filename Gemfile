@@ -21,7 +21,7 @@ gem 'omniauth', '1.9.1'
 gem 'omniauth-twitter'
 gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
-gem 'webpacker', '4.0.7'
+gem 'webpacker', github: 'rails/webpacker'
 gem 'jquery-rails'
 gem 'jp_prefecture'
 

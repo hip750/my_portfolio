@@ -4,7 +4,7 @@ b46ce72fa7d3cab35c40d6badf50ced968a236c8		branch '5-x-stable' of https://github.
 117bd42dd25b1a66ce2a2340054a65a0ac583d55		branch '5.0-fixes' of https://github.com/rails/webpacker
 0903bd38bd2686e31bffc0792d06548e9b4f8367		branch 'cache-control' of https://github.com/rails/webpacker
 0464a54b1657600c90bd444545a72cee7561e698		branch 'fix-erb-loader' of https://github.com/rails/webpacker
-d31f3d436aa7f140e6bb3e30726d3c7f9e81e60f		branch 'master' of https://github.com/rails/webpacker
+b7069f4618de51415a4449908346a3c0853880dc		branch 'master' of https://github.com/rails/webpacker
 4ba7ac92a3560bc43f22207c50aaeea24a629149		branch 'new-5.x-release' of https://github.com/rails/webpacker
 3a825ddedc206248729a5328f3517ba8add20573		branch 'react-example' of https://github.com/rails/webpacker
 14fd532e74450fb21d51a3ba63ae8e15345e9b2a		branch 'revert-2454-patch-1' of https://github.com/rails/webpacker
