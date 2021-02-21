@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_user!, only: [:edit, :update]
-  before_action :check_guest, only: [:update, :destroy]
+  before_action :check_guest, only: [:destroy]
 
   private
 
@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # ゲストユーザーを削除させない
   def check_guest
     if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+      redirect_to user_path(current_user), alert: 'ゲストユーザーは削除できません。'
     end
   end
 end

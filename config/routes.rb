@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     post '/users/guest_sign_in' => 'users/sessions#new_guest'
     get  '/users/sign_out' => 'devise/sessions#destroy'
+    # get  '/users/:id' => 'users/registrations#show'
 
   end
   
