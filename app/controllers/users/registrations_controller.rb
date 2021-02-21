@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_user!, only: [:edit, :update]
-  before_action :check_guest, only: [:destroy]
+  before_action :check_guest, only: :destroy
 
   private
 
