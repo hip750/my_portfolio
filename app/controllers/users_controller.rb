@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @recruits = @user.recruits.paginate(page: params[:page])
+    @recruit  = current_user.recruits.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
   end
 
   private

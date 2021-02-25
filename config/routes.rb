@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'recruits/new'
+  get 'recruits/create'
+  get 'recruits/show'
+  get 'recruits/edit'
+  get 'recruits/update'
+  get 'recruits/destroy'
   root 'static_pages#home'
   get  '/about' => 'static_pages#about'
   get  '/terms_of_service' => 'static_pages#terms_of_service'
@@ -20,5 +26,6 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:show]
+  resources :recruits
 
 end

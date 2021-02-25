@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  include JpPrefecture
-  jp_prefecture :prefecture_code, method_name: :pref
+  has_many :recruits, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :lockable,
@@ -15,6 +14,18 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 },
                        # format: { with: Const::VALID_PASSWORD_REGEX },
                        allow_nil: true
+  validates :first_name, length: { maximum: 50 }
+  validates :last_name, length: { maximum: 50 }
+  validates :first_name_ruby, length: { maximum: 50 }
+  validates :last_name_ruby, length: { maximum: 50 }
+  validates :license, length: { maximum: 255 }
+  validates :career, length: { maximum: 1000 }
+  validates :postcode, length: { maximum: 8 }
+  validates :city, length: { maximum: 50 }
+  validates :street, length: { maximum: 255 }
+  validates :phone_number, length: { maximum: 13 }
+  validates :work_times, length: { maximum: 255 }
+  validates :self_promotion, length: { maximum: 1000 }
 
   # Twitterログイン
   def self.from_omniauth(auth)
@@ -47,23 +58,17 @@ class User < ApplicationRecord
   # passwordなしでedit
   def update_without_current_password(params, *options)
     params.delete(:current_password)
-
     if params[:password].blank? && params[:password_confirmation].blank?
       params.delete(:password)
       params.delete(:password_confirmation)
     end
-
     result = update_attributes(params, *options)
     clean_up_passwords
     result
   end
-
-  # JpPrefecture
-  def prefecture_name
-    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
-  end
-
-  def prefecture_name=(prefecture_name)
-    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  
+  #求人情報の表示
+  def feed
+    Recruit.where("user_id = ?", id)
   end
 end

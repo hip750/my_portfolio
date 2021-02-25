@@ -1,0 +1,56 @@
+<% @recruits.each do |recruit| %>
+  <h1><%= recruit.co_name %></h1>
+    <table class="recruit-create-table">
+      <tr>
+        <th><strong>企業・法人名</strong></th>
+        <td><%= recruit.co_name %></td>
+      </tr>
+      <tr>
+        <th><strong>タイトル</strong></th>
+        <td><%= recruit.title %></td>
+      </tr>
+      <tr>
+        <th><strong>説明詳細</strong></th>
+        <td><%= recruit.description %></td>
+      </tr>
+      <tr>
+        <th><strong>必要資格</strong></th>
+        <td><%= recruit.required_license %></td>
+      </tr>
+      <tr>
+        <th><strong>給与</strong></th>
+        <td><%= recruit.pay %></td>
+      </tr>
+      <tr>
+        <th><strong>勤務時間</strong></th>
+        <td><%= recruit.work_style %></td>
+      </tr>
+      <tr>
+        <th><strong>交通手段</strong></th>
+        <td><%= recruit.transportation %></td>
+      </tr>
+      <tr>
+        <th><strong>電話番号</strong></th>
+        <td><%= recruit.phone_number %></td>
+      </tr>
+      <tr>
+        <th><strong>所在地</strong></th>
+        <td>
+          〒<%= recruit.postcode %><br />
+          <%= recruit.prefecture_name %><%= recruit.city %><%= recruit.street %>
+        </td> 
+      </tr>
+      <tr>
+        <th><strong>アクセス</strong></th>
+        <td><%= recruit.access %></td>
+      </tr>
+      <tr>
+        <th><strong>ウェブサイト</strong></th>
+        <td><%= recruit.web_site %></td>
+      </tr>
+    </table>
+
+    <div class="recruit-create-panel">
+
+    </div>
+    <% end %>

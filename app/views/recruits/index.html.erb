@@ -1,0 +1,6 @@
+<div class="col-md-8">
+  <ol class="recruits">
+    <%= render @recruits %>
+  </ol>
+  <%= will_paginate @recruits, previous_label: " &lt 前へ", next_label: "次へ &gt" %>
+</div>

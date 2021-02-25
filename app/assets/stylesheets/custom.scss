@@ -114,14 +114,17 @@ footer {
 
 /* Form Layout */
 #error_explanation {
-  width: 80%;
-  background: #ffb5b57a;
-  border: #7a5353 solid 1px;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 20px auto;
-  h2, li {
-    color: #924444;
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
   }
 }
 
@@ -166,7 +169,7 @@ form {
 }
 
 .form-item {
-  margin-bottom: 0.75em;
+  margin-bottom: 1em;
   width: 100%;
   input {
     background: #fafafa;
@@ -463,5 +466,61 @@ aside {
 }
 
 .update-button:hover {
+  background: #e78c96;
+}
+
+/* recruit form */
+.recruit-create-table {
+  table-layout: fixed;
+  width: 100%;
+  border:1px solid #ddd;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  th {
+    width: 30%;
+    background:lightblue;
+    padding:10px;
+    border:1px solid #666;
+  }
+  td {
+    width: 70%;
+    padding:10px 20px;
+    border:1px solid #666;
+  }
+  p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 5px 0;
+  }
+}
+
+.recruit-create-panel {
+  text-align: center;
+}
+
+.recruit-create-button {
+  background: #e77784;
+  box-shadow: 0 4px 0 #e91f37;
+  position: relative;
+  border: none;
+  color: #fff;
+  height: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  letter-spacing: 0.05em;
+  transition: background 0.3s ease-in-out;
+  width: 30%;
+  border-radius: 5px;
+  outline: none
+}
+
+.recruit-create-button:active {
+  top: 2px;
+	box-shadow: 0 2px 0 #e91f37;
+}
+
+.recruit-create-button:hover {
   background: #e78c96;
 }
