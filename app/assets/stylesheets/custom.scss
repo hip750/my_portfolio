@@ -524,3 +524,29 @@ aside {
 .recruit-create-button:hover {
   background: #e78c96;
 }
+
+/* likes */
+
+.likes-btn {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.unlike-btn {
+  width: 25px;
+  height: 30px;
+  font-size: 25px;
+  color: #e54747;
+  margin-left: 60px;
+  text-decoration: none;
+  }
+
+.like-btn {
+  width: 25px;
+  height: 30px;
+  font-size: 25px;
+  color: #808080; 
+  margin-left: 60px;
+  text-decoration: none;
+  }
+  

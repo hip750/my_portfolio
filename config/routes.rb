@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   get 'recruits/new'
   get 'recruits/create'
   get 'recruits/show'
@@ -21,11 +23,11 @@ Rails.application.routes.draw do
   devise_scope :user do
     post '/users/guest_sign_in' => 'users/sessions#new_guest'
     get  '/users/sign_out' => 'devise/sessions#destroy'
-    # get  '/users/:id' => 'users/registrations#show'
-
   end
   
   resources :users, only: [:show]
-  resources :recruits
+  resources :recruits do
+    resource  :likes, only: [:create, :destroy]
+  end
 
 end

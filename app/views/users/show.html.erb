@@ -4,9 +4,41 @@
   <aside class="col-md-4 user_info">
     <%= render "user_info" %>
   </aside>
+
   <div class="col-md-8">
-    <% if @feed_items.any? %>
-      <%= render 'shared/feed' %>
-    <% end %>
+    <ol class="recruits">
+      <% @like_recruits.each do |recruit| %>
+        <%= link_to recruit_path(recruit.id) do %>
+          <li id="recruit-<%= recruit.id %>">
+            <div class="index-img">
+              <% if recruit.image.attached? %>
+                <%= image_tag recruit.display_image, width: '320px', height: '240px' %>
+              <% else %>
+                <%= image_tag "medpot_top.jpeg", alt: "recruit_top_image", width: '320px', height: '240px' %>
+              <% end %>
+            </div>
+            <div class="recruit-co-name">
+              <%= recruit.co_name %>
+            </div>
+            <div class="recruit-title">
+              <i class="fa fa-map-marker-alt fa-lg"></i>
+              <%= recruit.prefecture_name %>(<%= recruit.access %>)
+            </div>
+            <span class="timestamp">
+              最終更新: <%= time_ago_in_words(recruit.updated_at) %>前
+
+              <% if current_user?(recruit.user) %>
+                <%= link_to "delete", recruit, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+              <% end %>
+            </span>
+
+            <div id="likes-btn-<%= recruit.id %>" class="likes-btn">
+              <%= render "likes/like", { recruit: recruit } %>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+      <%= will_paginate @like_recruits, previous_label: " &lt 前へ", next_label: "次へ &gt" %>
+    </ol>
   </div>
 </div>

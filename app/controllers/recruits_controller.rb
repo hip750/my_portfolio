@@ -20,11 +20,12 @@ class RecruitsController < ApplicationController
   end
 
   def index
+    @recruit = Recruit.find_by(params[:id])
     @recruits = Recruit.paginate(page: params[:page], per_page: 20)
   end
 
   def show
-    @recruits = Recruit.all
+    @recruit = Recruit.find(params[:id])
   end
 
   def edit
@@ -32,7 +33,7 @@ class RecruitsController < ApplicationController
   end
 
   def update
-    @recruit = recruit.find(params[:id])
+    @recruit = Recruit.find_by(params[:id])
     if @recruit.update(recruit_params)
       flash[:notice] = "企業情報を編集しました"
       redirect_to user_path(current_user.id)

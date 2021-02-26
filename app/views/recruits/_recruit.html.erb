@@ -1,4 +1,4 @@
-<%= link_to recruit_path(recruit.user_id) do %>
+<%= link_to recruit_path(recruit.id) do %>
   <li id="recruit-<%= recruit.id %>">
     <div class="index-img">
       <% if recruit.image.attached? %>
@@ -17,9 +17,11 @@
     <span class="timestamp">
       最終更新: <%= time_ago_in_words(recruit.updated_at) %>前
       <% if current_user?(recruit.user) %>
-      <%= link_to "delete", recruit,  method: :delete,
-                                      data: { confirm: "本当に削除しますか？" } %>
+        <%= link_to "delete", recruit, method: :delete, data: { confirm: "本当に削除しますか？" } %>
       <% end %>
     </span>
+    <div id="likes-btn-<%= recruit.id %>" class="likes-btn">
+      <%= render partial: 'likes/like', locals: { recruit: recruit } %>
+    </div>
   </li>
 <% end %>

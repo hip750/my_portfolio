@@ -1,7 +1,9 @@
 class Recruit < ApplicationRecord
   belongs_to :user
+  has_many :likes
   has_one_attached :image
   default_scope -> { order(created_at: :desc) }
+  
   validates :user_id, presence: true
   validates :co_name, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 1000 }
@@ -29,4 +31,10 @@ class Recruit < ApplicationRecord
   def display_image
     image.variant(resize:'800x600')
   end
+
+  # お気に入り追加の判定
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
+  end
+
 end
