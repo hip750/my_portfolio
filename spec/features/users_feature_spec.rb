@@ -26,5 +26,4 @@ RSpec.feature "User_feature", type: :feature do
     click_button "サインアップ"
     expect(current_path).to eq new_user_registration_path
   end
-
 end

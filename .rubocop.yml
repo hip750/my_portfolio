@@ -16,4 +16,5 @@ AllCops:
     - 'spec/spec_helper.rb'
     - 'node_modules/**/*'
     - 'app/helpers/application_helper.rb'
+    - 'app/models/recruit.rb'
     

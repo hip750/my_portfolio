@@ -30,7 +30,7 @@ RSpec.describe "Users", type: :request do
             expect do
               post user_registration_path, params: { user: invalid_user_params }
             end.not_to change(User, :count)
-            expect(response.body).to include 'エラーが発生したため ユーザ は保存されませんでした。'
+            expect(response.body).to include 'つのエラーを検知しました'
           end
         end
       end

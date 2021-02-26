@@ -15,7 +15,7 @@ FactoryBot.define do
     transportation { "自動車通勤可。駐車場完備。" }
     required_license { "正看護師 or 准看護師" }
     association :user
-  
+
     trait :recruit_2 do
       co_name { "クリニック2" }
       description { "フレンドリーなクリニックです。" }

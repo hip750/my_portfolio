@@ -66,8 +66,8 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
-  
-  #求人情報の表示
+
+  # 求人情報の表示
   def feed
     Recruit.where("user_id = ?", id)
   end

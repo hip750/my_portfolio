@@ -5,7 +5,7 @@ RSpec.describe Recruit, type: :model do
   let!(:recruit_3) { create(:recruit, :recruit_3) }
   let!(:recruit_4) { create(:recruit, :recruit_4) }
 
-  #valid
+  # valid
   it "recruitが有効であること" do
     expect(recruit).to be_valid
   end
@@ -76,7 +76,7 @@ RSpec.describe Recruit, type: :model do
     recruit.phone_number = "a" * 14
     expect(recruit).to be_invalid
   end
-  
+
   it "web_siteは255文字以下であること" do
     recruit.web_site = "a" * 256
     expect(recruit).to be_invalid
@@ -97,5 +97,4 @@ RSpec.describe Recruit, type: :model do
       expect(Recruit.first).to eq recruit_4
     end
   end
-
 end
