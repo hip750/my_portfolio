@@ -27,6 +27,6 @@ class Recruit < ApplicationRecord
 
   # 画像のリサイズ
   def display_image
-    image.variant(resize_to_limit: [1280, 720])
+    image.variant(resize:'800x600')
   end
 end
