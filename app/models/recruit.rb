@@ -18,7 +18,7 @@ class Recruit < ApplicationRecord
   validates :required_license, length: { maximum: 255 }
   validates :image, content_type: {
     in: %w(image/jpeg image/gif image/png),
-    message: "拡張子は「jpeg」「gif」「png」で指定して下さい",
+    message: "拡張子は「.jpeg」「.gif」「.png」で指定して下さい",
   },
                     size: {
                       less_than: 5.megabytes,
