@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :recruits, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_recruits, through: :likes, source: :recruit
+  has_many :reviews, dependent: :destroy
 
   validates :name,  presence: true, length: { maximum: 50 },
                     uniqueness: true

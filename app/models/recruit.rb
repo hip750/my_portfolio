@@ -1,6 +1,7 @@
 class Recruit < ApplicationRecord
   belongs_to :user
-  has_many :likes
+  has_many :likes, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_one_attached :image
   default_scope -> { order(created_at: :desc) }
   

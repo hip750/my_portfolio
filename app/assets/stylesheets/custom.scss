@@ -41,14 +41,14 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: $gray-light;
-}
+// h2 {
+//   font-size: 1.2em;
+//   letter-spacing: -1px;
+//   margin-bottom: 30px;
+//   text-align: center;
+//   font-weight: normal;
+//   color: $gray-light;
+// }
 
 p {
   font-size: 1.1em;
@@ -469,13 +469,13 @@ aside {
   background: #e78c96;
 }
 
-/* recruit form */
+/* recruit create */
 .recruit-create-table {
   table-layout: fixed;
   width: 100%;
   border:1px solid #ddd;
   border-collapse: collapse;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   th {
     width: 30%;
     background:lightblue;
@@ -516,6 +516,7 @@ aside {
   outline: none
 }
 
+/* recruit show */
 .recruit-create-button:active {
   top: 2px;
 	box-shadow: 0 2px 0 #e91f37;
@@ -523,6 +524,50 @@ aside {
 
 .recruit-create-button:hover {
   background: #e78c96;
+}
+
+.recruit-show-table {
+  table-layout: fixed;
+  width: 100%;
+  border:1px solid #ddd;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+  th {
+    width: 30%;
+    background:lightblue;
+    padding:10px;
+    border:1px solid #666;
+  }
+  td {
+    width: 70%;
+    padding:10px 20px;
+    border:1px solid #666;
+  }
+  p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 5px 0;
+  }
+}
+
+#reviews_area {
+  margin-bottom: 30px;
+  h2 {
+    margin-bottom: 30px;
+  }
+}
+
+.review-name {
+  margin-bottom: 5px;
+}
+
+.review-content {
+  margin: 20px 0;
+}
+
+#star {
+  margin-bottom: 20px;
 }
 
 /* likes */

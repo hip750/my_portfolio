@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+  
+
+  <%= form_with model: [recruit, review] do |f| %>
+    <div class="field" id="star">
+      <%= f.label :evaluation, "評価：" %>
+      <%= f.hidden_field :evaluation, id: :review_star %>
+    </div>
+    <div class="field">
+      <%= f.text_area :content, rows: "10", cols: "60", class: 'input', placeholder: "レビュー内容" %>
+    </div>
+      <%= f.submit "レビューを投稿", class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
+<script>
+  jqOther('#star').raty({
+    size     : 36,
+    starOff  : '<%= asset_path('raty/star-off.png') %>',
+    starOn   : '<%= asset_path('raty/star-on.png') %>',
+    starHalf : '<%= asset_path('raty/star-half.png') %>',
+    scoreName: 'review[evaluation]',
+    half: true,
+  });
+</script>

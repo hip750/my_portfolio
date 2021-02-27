@@ -26,6 +26,8 @@ class RecruitsController < ApplicationController
 
   def show
     @recruit = Recruit.find(params[:id])
+    @review = Review.new
+    @reviews = @recruit.reviews
   end
 
   def edit
@@ -51,14 +53,14 @@ class RecruitsController < ApplicationController
 
   private
 
-  def recruit_params
-    params.require(:recruit).permit(:co_name, :title, :description, :pay, :work_style,
-                                    :postcode, :prefecture_code, :city, :street, :phone_number,
-                                    :access, :web_site, :transportation, :required_license, :image)
-  end
+    def recruit_params
+      params.require(:recruit).permit(:co_name, :title, :description, :pay, :work_style,
+                                      :postcode, :prefecture_code, :city, :street, :phone_number,
+                                      :access, :web_site, :transportation, :required_license, :image)
+    end
 
-  def correct_user
-    @recruit = current_user.recruits.find_by(id: params[:id])
-    redirect_to root_url if @recruit.nil?
-  end
+    def correct_user
+      @recruit = Recruit.find_by(id: params[:id])
+      redirect_to root_url if @recruit&.user != current_user
+    end
 end

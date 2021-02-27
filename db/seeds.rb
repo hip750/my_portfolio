@@ -25,7 +25,7 @@ end
                     city: "東京都渋谷区",
                     street: "代々木",
                     phone_number: "0012341234",
-                    access: "谷町6丁目駅より徒歩３分",
+                    access: "代々木駅より徒歩３分",
                     web_site: "https//www.hogehoge-#{i}.foobar.com",
                     transportation: "自動車通勤不可。交通費支給あり。",
                     required_license: "正看護師 or 准看護師")
