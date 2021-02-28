@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     @like = current_user.likes.build(recruit_id: params[:recruit_id])
     @like.save
     respond_to do |format|
-      format.html {redirect_to request.referrer}
+      format.html { redirect_to request.referrer }
       format.js
     end
   end
@@ -14,7 +14,7 @@ class LikesController < ApplicationController
     @like = Like.find_by(recruit_id: params[:recruit_id], user_id: current_user.id)
     @like.destroy
     respond_to do |format|
-      format.html {redirect_to request.referrer}
+      format.html { redirect_to request.referrer }
       format.js
     end
   end

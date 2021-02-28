@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   resources :recruits do
     resource  :likes, only: [:create, :destroy]
     resources :reviews, only: [:create, :destroy]
+    collection do
+      get :search
+    end
   end
 
 end

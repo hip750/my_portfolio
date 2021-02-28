@@ -7,21 +7,25 @@
         <%= image_tag "medpot_top.jpeg", alt: "recruit_top_image", width: '320px', height: '240px' %>
       <% end %>
     </div>
+
     <div class="recruit-co-name">
       <%= recruit.co_name %>
     </div>
+
     <div class="recruit-title">
       <i class="fa fa-map-marker-alt fa-lg"></i>
       <%= recruit.prefecture_name %>(<%= recruit.access %>)
     </div>
+
     <span class="timestamp">
       最終更新: <%= time_ago_in_words(recruit.updated_at) %>前
       <% if current_user?(recruit.user) %>
         <%= link_to "delete", recruit, method: :delete, data: { confirm: "本当に削除しますか？" } %>
       <% end %>
     </span>
+
     <div id="likes-btn-<%= recruit.id %>" class="likes-btn">
-      <%= render partial: 'likes/like', locals: { recruit: recruit } %>
+      <%= render "likes/like", { recruit: recruit } %>
     </div>
   </li>
 <% end %>

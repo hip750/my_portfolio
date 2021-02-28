@@ -594,4 +594,31 @@ aside {
   margin-left: 60px;
   text-decoration: none;
   }
-  
+
+  /* search */
+
+.search_container{
+  text-align: center;
+  .search_input{
+    border: none;
+    border-radius: 50px;
+    background: #F4F8F9;
+    height: 35px;
+    width: 50%;
+    padding: 10px 20px;
+    margin-top: 40px;
+    outline: none
+  }
+  .search_button{
+    background-color: transparent;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 0px 4px 4px 0px;
+    color: #999999;
+    outline: none
+  }
+  .prefecture_container {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}

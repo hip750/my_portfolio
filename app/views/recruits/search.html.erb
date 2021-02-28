@@ -1,0 +1,6 @@
+
+<%= render "shared/search_form", { search: @search } %>
+<ol class="recruits">
+    <%= render partial: "recruit", collection: @search_recruits, as: "recruit" %>
+    <%= will_paginate @search_recruits, previous_label: " &lt 前へ", next_label: "次へ &gt" %>
+</ol>

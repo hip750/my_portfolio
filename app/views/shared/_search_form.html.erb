@@ -1,0 +1,19 @@
+<div class="search_container">
+  <div class="freeword_container">
+    <%= search_form_for search, url: search_recruits_path do |f| %>
+      <%= f.search_field :co_name_or_title_or_description_or_access_or_required_license_cont, placeholder: "フリーワード検索", class: "search_input" %>
+      <%= button_tag type: "submit", class: "search_button" do %>
+        <i class="fa fa-search fa-lg"></i>
+      <% end %>
+    <% end %><br />
+  </div>
+  <div class="prefecture_container">
+    <%= search_form_for search, url: search_recruits_path do |f| %>
+      <span>都道府県で検索：</span>
+      <%= f.collection_select :prefecture_code_eq, JpPrefecture::Prefecture.all, :code, :name, id: "user_prefecture_code", class: "search_prefecture" %>
+      <%= button_tag type: "submit", class: "search_button" do %>
+        <i class="fa fa-search fa-lg"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -16,26 +16,26 @@ class ReviewsController < ApplicationController
     end
   end
 
-    def destroy
-      @recruit = Recruit.find(params[:id])
-      @review = Review.find(params[:id])
-      if @review.destroy
-        flash[:notice] = 'レビューを削除しました'
-        redirect_to recruit_path(@recruit)
-      else
-        flash[:alert] = 'レビューの削除に失敗しました'
-        redirect_to recruit_path(@recruit)
-      end
+  def destroy
+    @recruit = Recruit.find(params[:id])
+    @review = Review.find(params[:id])
+    if @review.destroy
+      flash[:notice] = 'レビューを削除しました'
+      redirect_to recruit_path(@recruit)
+    else
+      flash[:alert] = 'レビューの削除に失敗しました'
+      redirect_to recruit_path(@recruit)
     end
+  end
 
   private
 
-    def review_params
-      params.require(:review).permit(:evaluation, :content, :recruit_id, :user_id)
-    end
+  def review_params
+    params.require(:review).permit(:evaluation, :content, :recruit_id, :user_id)
+  end
 
-    def correct_user
-      @review = current_user.reviews.find_by(id: params[:id])
-      redirect_to root_url if @review.nil?
-    end
+  def correct_user
+    @review = current_user.reviews.find_by(id: params[:id])
+    redirect_to root_url if @review.nil?
+  end
 end
