@@ -16,6 +16,7 @@ gem 'devise-i18n'
 gem 'dotenv-rails'
 gem 'faker'
 gem 'font-awesome-sass', '~> 5.4.1'
+gem "geocoder"
 gem 'image_processing', '1.9.3'
 gem 'jbuilder', '~> 2.5'
 gem 'jp_prefecture'

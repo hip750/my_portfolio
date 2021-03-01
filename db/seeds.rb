@@ -22,7 +22,7 @@ end
                     work_style: "9時〜19時の間(3時間〜)",
                     postcode: "1510053",
                     prefecture_code: 13,
-                    city: "東京都渋谷区",
+                    city: "渋谷区",
                     street: "代々木",
                     phone_number: "0012341234",
                     access: "代々木駅より徒歩３分",

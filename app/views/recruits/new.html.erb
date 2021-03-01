@@ -38,13 +38,13 @@
       <th><strong>所在地</strong></th>
       <td>
         <%= f.label :postcode %><br />
-        <%= f.text_field :postcode, autofocus: true, placeholder: "1231234", id: "user_postcode" %><br /><br />
+        <%= f.text_field :postcode, autofocus: true, placeholder: "1231234", id: "recruit_postcode" %><br /><br />
         <%= f.label :prefecture_code %><br />
-        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, id: "user_prefecture_code" %><br /><br />
+        <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, id: "recruit_prefecture_code" %><br /><br />
         <%= f.label :city %><br />
-        <%= f.text_field :city, autofocus: true, style: "width: 372px;", id: "user_city" %><br /><br />
+        <%= f.text_field :city, autofocus: true, style: "width: 372px;", id: "recruit_city" %><br /><br />
         <%= f.label:street %><br />
-        <%= f.text_field :street, autofocus: true, style: "width: 372px;", id: "user_street" %><br /><br />
+        <%= f.text_field :street, autofocus: true, style: "width: 372px;", id: "recruit_street" %><br /><br />
       </td> 
     </tr>
     <tr>

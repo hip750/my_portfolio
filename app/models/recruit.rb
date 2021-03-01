@@ -1,4 +1,7 @@
 class Recruit < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode
+
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :reviews, dependent: :destroy
@@ -36,6 +39,11 @@ class Recruit < ApplicationRecord
   # お気に入り追加の判定
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
+  end
+
+  #住所の結合
+  def address
+    prefecture_name + city + street
   end
 
 end

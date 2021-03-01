@@ -1,4 +1,4 @@
-var jqOther = jQuery.noConflict(true);
+let jqOther = jQuery.noConflict(true);
 
 // .jpostal
 jqOther(window).ready( function() {
@@ -8,6 +8,17 @@ jqOther(window).ready( function() {
       '#user_prefecture_code': '%3',
       '#user_city': '%4',
       '#user_street': '%5%6%7',
+    },
+  });
+});
+
+jqOther(window).ready( function() {
+  $('#recruit_postcode').jpostal({
+    postcode: ['#recruit_postcode'],
+    address: {
+      '#recruit_prefecture_code': '%3',
+      '#recruit_city': '%4',
+      '#recruit_street': '%5%6%7',
     },
   });
 });
