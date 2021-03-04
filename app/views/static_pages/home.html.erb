@@ -1,7 +1,21 @@
 <% provide(:title, "Home") %>
-<div class="center jumbotron">
-  <h1>Medpot</h1>
-  <p>スキマ時間でお仕事ならメドポット！</p>
-  <%= image_tag 'medpot_top.jpeg', alt: 'Medpot top image', class: "top-image" %>
 
+<div class="home jumbotron jumbotron-fluid">
+  <div class="container">
+    <section class="img-text">
+      <div class="img-text-1"><span>P</span>OCKET</div>
+      <div class="img-text-2"><span>O</span>F</div>
+      <div class="img-text-3"><span>T</span>IME</div>
+    </section>
+    <% unless user_signed_in? %>
+      <section class="img-button">
+        <div class="img-button-1">
+          <%= link_to "新規登録", new_user_registration_path %>
+        </div>
+        <div class="img-button-2">
+          <%= link_to "ログイン", new_user_session_path %>
+        </div>
+      </section>
+    <% end %>
+  </div>
 </div>

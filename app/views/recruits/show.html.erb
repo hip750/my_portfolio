@@ -1,61 +1,63 @@
-<div class="recruit-show-container">
-  <h1><%= @recruit.co_name %></h1>
-  <table class="recruit-show-table">
-    <tr>
-      <th><strong>企業・法人名</strong></th>
-      <td><%= @recruit.co_name %></td>
-    </tr>
-    <tr>
-      <th><strong>タイトル</strong></th>
-      <td><%= @recruit.title %></td>
-    </tr>
-    <tr>
-      <th><strong>説明詳細</strong></th>
-      <td><%= @recruit.description %></td>
-    </tr>
-    <tr>
-      <th><strong>必要資格</strong></th>
-      <td><%= @recruit.required_license %></td>
-    </tr>
-    <tr>
-      <th><strong>給与</strong></th>
-      <td><%= @recruit.pay %></td>
-    </tr>
-    <tr>
-      <th><strong>勤務時間</strong></th>
-      <td><%= @recruit.work_style %></td>
-    </tr>
-    <tr>
-      <th><strong>交通手段</strong></th>
-      <td><%= @recruit.transportation %></td>
-    </tr>
-    <tr>
-      <th><strong>電話番号</strong></th>
-      <td><%= @recruit.phone_number %></td>
-    </tr>
-    <tr>
-      <th><strong>所在地</strong></th>
-      <td>
-        〒<%= @recruit.postcode %><br />
-        <%= @recruit.address %>
-        <div id="map"></div>
-      </td> 
-    </tr>
-    <tr>
-      <th><strong>アクセス</strong></th>
-      <td><%= @recruit.access %></td>
-    </tr>
-    <tr>
-      <th><strong>ウェブサイト</strong></th>
-      <td><%= @recruit.web_site %></td>
-    </tr>
-  </table>
+<div class="container">
+  <div class="recruit-show-container">
+    <h1><%= @recruit.co_name %></h1>
+    <table class="recruit-show-table">
+      <tr>
+        <th><strong>企業・法人名</strong></th>
+        <td><%= @recruit.co_name %></td>
+      </tr>
+      <tr>
+        <th><strong>タイトル</strong></th>
+        <td><%= @recruit.title %></td>
+      </tr>
+      <tr>
+        <th><strong>説明詳細</strong></th>
+        <td><%= @recruit.description %></td>
+      </tr>
+      <tr>
+        <th><strong>必要資格</strong></th>
+        <td><%= @recruit.required_license %></td>
+      </tr>
+      <tr>
+        <th><strong>給与</strong></th>
+        <td><%= @recruit.pay %></td>
+      </tr>
+      <tr>
+        <th><strong>勤務時間</strong></th>
+        <td><%= @recruit.work_style %></td>
+      </tr>
+      <tr>
+        <th><strong>交通手段</strong></th>
+        <td><%= @recruit.transportation %></td>
+      </tr>
+      <tr>
+        <th><strong>電話番号</strong></th>
+        <td><%= @recruit.phone_number %></td>
+      </tr>
+      <tr>
+        <th><strong>所在地</strong></th>
+        <td>
+          〒<%= @recruit.postcode %><br />
+          <%= @recruit.address %>
+          <div id="map"></div>
+        </td> 
+      </tr>
+      <tr>
+        <th><strong>アクセス</strong></th>
+        <td><%= @recruit.access %></td>
+      </tr>
+      <tr>
+        <th><strong>ウェブサイト</strong></th>
+        <td><%= link_to @recruit.web_site, @recruit.web_site %></td>
+      </tr>
+    </table>
 
-  <div id="reviews_area">
-    <%= render "reviews/review", { reviews: @reviews } %>
-  </div>
-  <div class="review-form">
-    <%= render "reviews/review_form", { review: @review, recruit: @recruit } %>
+    <div id="reviews_area">
+      <%= render "reviews/review", { reviews: @reviews } %>
+    </div>
+    <div class="review-form">
+      <%= render "reviews/review_form", { review: @review, recruit: @recruit } %>
+    </div>
   </div>
 </div>
 

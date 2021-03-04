@@ -1,102 +1,95 @@
 
-<section class="user_name">
-  <h1>
-    <%= gravatar_for @user %>
-    <%= @user.name %>
-  </h1>
+<section class="user_menu">
+  <div class="user-icon">
+    <p class="user-name"><%= @user.name %></p>
+    <p><%= gravatar_for @user %></p>
+  </div>
+  <ul class="user-link">
+    <li>
+      <%= link_to edit_user_registration_path(@user) do %>
+        <i class="fas fa-user-edit fa-lg"></i>
+        <span>プロフィール編集</span>
+      <% end %><br />
+    </li>
+    <li>
+      <%= link_to new_recruit_path do %>
+        <i class="fas fa-hospital fa-lg"></i>&nbsp;
+        <span>求人情報の作成</span>
+      <% end %><br />
+    </li>
+    <li>
+      <%= link_to edit_recruit_path do %>
+        <i class="fas fa-edit fa-lg"></i>
+        <span>求人情報の編集</span>
+      <% end %><br />
+    </li>
+    <li>
+      <%= link_to recruits_path do %>
+        <i class="fa fa-search fa-lg"></i>&nbsp;
+        <span>求人情報を探す</span>
+      <% end %><br />
+    </li>
+  </ul>
 </section>
-<div class="update-link">
-  <%= link_to edit_user_registration_path(@user) do %>
-    <i class="fas fa-user-edit fa-2x"></i>
-  <% end %><br />
-  <%= link_to new_recruit_path do %>
-    求人作成
-  <% end %><br />
-  <%= link_to edit_recruit_path do %>
-    求人編集
-  <% end %><br />
-  <%= link_to recruits_path do %>
-    求人一覧
-  <% end %><br />
-</div>
-<section class="name">
+
+<section class="user-profile">
   <div class="name-title">
     <i class="fa fa-smile fa-lg"></i> ニックネーム
   </div>
   <p><%= @user.name %></p>
-</section>
-<section class="full_name">
+
   <div class="full_name-title">
     <i class="fa fa-user fa-lg"></i> 名前
   </div>
-  <p>カナ：<%= @user.last_name_ruby %> <%= @user.first_name_ruby %></p>
-  <p>漢字：<%= @user.last_name %> <%= @user.first_name %></p>
-</section>
-</section>
-<section class="email">
+  <p><span class="black">カナ：</span><%= @user.last_name_ruby %> <%= @user.first_name_ruby %></p>
+  <p><span class="black">漢字：</span><%= @user.last_name %> <%= @user.first_name %></p>
+
   <div class="email-title">
     <i class="fa fa-envelope fa-lg"></i> メールアドレス
   </div>
   <p><%= @user.email %></p>
-</section>
-</section>
-<section class="gender">
+
   <div class="gender-title">
     <i class="fas fa-venus-mars fa-lg"></i> 性別
   </div>
   <p><%= @user.gender %></p>
-</section>
-</section>
-<section class="birthday">
+
   <div class="birthday-title">
     <i class="fa fa-birthday-cake fa-lg"></i> 生年月日
   </div>
   <p><%= @user.birthday %></p>
-</section>
-</section>
-<section class="age">
+
   <div class="age-title">
     <i class="fa fa-sort-numeric-up fa-lg"></i> 年齢
   </div>
   <p><%= @user.age %>歳</p>
-</section>
-<section class="user-address">
+
   <div class="user-address-title">
     <i class="fa fa-map-marker-alt fa-lg"></i> 住所
   </div>
   <p>〒<%= @user.postcode %></p>
   <p><%= @user.prefecture_name %><%= @user.city %><%= @user.street %></p>
-</section>
-</section>
-<section class="phone-number">
+
   <div class="phone-number-title">
     <i class="fa fa-phone fa-lg"></i> 電話番号
   </div>
   <p><%= @user.phone_number %></p>
-</section>
-</section>
-<section class="license">
+
   <div class="license-title">
     <i class="fa fa-syringe fa-lg"></i> 所有資格
   </div>
   <p><%= @user.license %></p>
-</section>
-</section>
-<section class="career">
+
   <div class="career-title">
     <i class="fa fa-sticky-note fa-lg"></i> 経歴
   </div>
   <p><%= @user.career %></p>
-</section>
-</section>
-</section>
-<section class="work-times">
+
   <div class="cwork-times-title">
     <i class="fa fa-sun fa-lg"></i> 勤務可能曜日・時間
   </div>
   <p><%= @user.work_times %></p>
-</section>
-<section class="self-promotion">
+
   <div class="self-promotion-title">
     <i class="fa fa-address-card fa-lg"></i> 自己PR
   </div>

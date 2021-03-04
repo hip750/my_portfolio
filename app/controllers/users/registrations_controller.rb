@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # ゲストユーザーを削除させない
   def check_guest
     if resource.email == 'guest@example.com'
-      redirect_to user_path(current_user), alert: 'ゲストユーザーは削除できません。'
+      redirect_to user_path(current_user), alert: 'ゲストユーザーは削除できません'
     end
   end
 end

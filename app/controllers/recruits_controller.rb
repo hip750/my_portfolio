@@ -10,11 +10,11 @@ class RecruitsController < ApplicationController
     @recruit = current_user.recruits.build(recruit_params)
     @recruit.image.attach(params[:recruit][:image])
     if @recruit.save
-      flash[:notice] = "投稿に成功しました！"
+      flash[:notice] = "求人情報の投稿に成功しました！"
       redirect_to user_path(current_user.id)
     else
       @feed_items = []
-      flash.now[:alert] = "投稿に失敗しました"
+      flash.now[:alert] = "求人情報の投稿に失敗しました"
       render new_recruit_path
     end
   end
@@ -31,23 +31,23 @@ class RecruitsController < ApplicationController
   end
 
   def edit
-    @recruit = Recruit.find(params[:id])
+    @recruit = Recruit.find_by(params[:id])
   end
 
   def update
     @recruit = Recruit.find_by(params[:id])
     if @recruit.update(recruit_params)
-      flash[:notice] = "企業情報を編集しました"
+      flash[:notice] = "求人情報を編集しました"
       redirect_to user_path(current_user.id)
     else
-      flash.now[:alert] = "更新に失敗しました"
+      flash.now[:alert] = "求人情報の更新に失敗しました"
       render edit_recruit_path(current_user.id)
     end
   end
 
   def destroy
     @recruit.destroy
-    flash[:notice] = "求人を削除しました。"
+    flash[:notice] = "求人情報を削除しました"
     redirect_to request.referrer || root_url
   end
 

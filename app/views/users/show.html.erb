@@ -1,14 +1,17 @@
 <% provide(:title, @user.name) %>
 
-<div class="row">
-  <aside class="col-md-4 user_info">
-    <%= render "user_info" %>
-  </aside>
-
-  <div class="col-md-8">
-    <ol class="recruits">
-      <%= render partial: "recruits/recruit", collection: @like_recruits, as: "recruit" %>
-      <%= will_paginate @like_recruits, previous_label: " &lt 前へ", next_label: "次へ &gt" %>
-    </ol>
+<div class="container">
+  <div class="row">
+    <aside class="user_info col-md-4">
+      <%= render "user_info" %>
+    </aside>
+  
+    <div class="col-md-8">
+      <h1>お気に入り一覧（<%= @like_recruits.count %>）</h1>
+      <ol class="recruits">
+        <%= render partial: "recruits/recruit", collection: @like_recruits, as: "recruit" %>
+        <%= will_paginate @like_recruits, previous_label: " &lt 前へ", next_label: "次へ &gt" %>
+      </ol>
+    </div>
   </div>
 </div>
