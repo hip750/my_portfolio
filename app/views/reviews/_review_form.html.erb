@@ -1,6 +1,4 @@
 <% if user_signed_in? %>
-  
-
   <%= form_with model: [recruit, review] do |f| %>
     <div class="field" id="star">
       <%= f.label :evaluation, "評価：" %>

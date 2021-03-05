@@ -428,7 +428,7 @@ form {
 
 .form-footer {
   font-size: 1em;
-  padding-top: 2em;
+  padding: 2em;
   text-align: center;
   div {
     margin:  5px 0;
@@ -696,7 +696,6 @@ aside {
   outline: none
 }
 
-/* recruit show */
 .recruit-button:active {
   top: 2px;
 	box-shadow: 0 2px 0 #e91f37;
@@ -706,12 +705,30 @@ aside {
   background: #e78c96;
 }
 
+/* recruit show */
+.recruit-show-container {
+  width: 690px;
+  margin: 0 auto;
+}
+
+.show-img {
+  width: 100%;
+  height: 460px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+  }
+}
+
 .recruit-show-table {
   table-layout: fixed;
-  width: 100%;
+  width: 690px;
   border:1px solid #ddd;
   border-collapse: collapse;
-  margin-bottom: 50px;
+  margin: 0 auto 50px;
   th {
     width: 30%;
     background:lightblue;

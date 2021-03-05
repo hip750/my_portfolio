@@ -1,6 +1,15 @@
 <div class="container">
   <div class="recruit-show-container">
     <h1><%= @recruit.co_name %></h1>
+
+    <div class="show-img">
+      <% if @recruit.image.attached? %>
+        <%= image_tag recruit.display_image %>
+      <% else %>
+        <%= image_tag "/images/medpot_top.jpeg", alt: "recruit_top_image" %>
+      <% end %>
+    </div>
+
     <table class="recruit-show-table">
       <tr>
         <th><strong>企業・法人名</strong></th>
@@ -52,11 +61,13 @@
       </tr>
     </table>
 
-    <div id="reviews_area">
-      <%= render "reviews/review", { reviews: @reviews } %>
-    </div>
-    <div class="review-form">
-      <%= render "reviews/review_form", { review: @review, recruit: @recruit } %>
+    <div class="reviews">
+      <div id="reviews_area">
+        <%= render "reviews/review", { reviews: @reviews } %>
+      </div>
+      <div class="review-form">
+        <%= render "reviews/review_form", { review: @review, recruit: @recruit } %>
+      </div>
     </div>
   </div>
 </div>
