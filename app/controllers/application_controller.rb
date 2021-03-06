@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
       paginate(page: params[:page], per_page: 20)
   end
 
+  def recruit_instance(recruit)
+    @recruit = recruit
+  end
+
   private
 
   def configure_permitted_parameters

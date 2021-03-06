@@ -4,10 +4,35 @@
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
 
-/* mixins, variables, etc. */
+/* variables */
 $base-color: #ccc4a1;
 $gray-medium-light: #eaeaea;
 $hover-transition: all 0.3s ease-in-out;
+
+/* mixin */
+@mixin submit-button($bgColor: #e77784, $boxColor: #e91f37, $hColor: #e78c96) {
+  background: $bgColor;
+  box-shadow: 0 4px 0 $boxColor;
+  position: relative;
+  border: none;
+  color: #fff;
+  height: 40px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  letter-spacing: 0.05em;
+  transition: $hover-transition;
+  width: 100%;
+  border-radius: 5px;
+  outline: none;
+  &:hover {
+    background: $hColor;
+  }
+  &:active {
+    top: 2px;
+    box-shadow: 0 2px 0 $boxColor;
+  }
+}
 
 /* universal */
 html {
@@ -243,7 +268,7 @@ footer {
   }
 }
 
-/* Form Layout */
+/* sign-in, login Form */
 #error_explanation {
   color: red;
   ul {
@@ -327,29 +352,7 @@ form {
 }
 
 .submit-button {
-  background: #e77784;
-  box-shadow: 0 4px 0 #e91f37;
-  position: relative;
-  border: none;
-  color: #fff;
-  height: 40px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.2em;
-  text-align: center;
-  letter-spacing: 0.05em;
-  transition: $hover-transition;
-  width: 100%;
-  border-radius: 5px;
-  outline: none
-}
-
-.submit-button:active {
-  top: 2px;
-	box-shadow: 0 2px 0 #e91f37;
-}
-
-.submit-button:hover {
-  background: #e78c96;
+  @include submit-button();
 }
 
 .or {
@@ -365,29 +368,17 @@ form {
 }
 
 .twitter-button {
-  background-color: #008DDE;
-  box-shadow: 0 4px 0 #0078BD;
+  @include submit-button(#008DDE, #0078BD, #1397D8);
   display: block;
-  position: relative;
-  font-family: 'Open Sans', sans-serif;
-  color: #fff;
-  height: 40px;
-  font-size: 14px;
-  text-align: center;
-  transition: $hover-transition;
-  border-radius: 5px;
-  padding: 14px 60px;
-}
-
-.twitter-button:active {
-  top: 2px;
-  box-shadow: 0 2px 0 #0078BD;
-  text-decoration: none;
-}
-.twitter-button:hover {
-  background-color: #1397D8;
-  color: #fff;
-  text-decoration: none;
+  padding: 14px 50px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+  &:active {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 /* guest button */
@@ -398,30 +389,17 @@ form {
 }
 
 .guest-button {
-  background-color: #78c47c;
-  box-shadow: 0 4px 0 #02b40b;
+  @include submit-button(#78c47c, #02b40b, #86db9b);
   display: block;
-  position: relative;
-  font-family: 'Open Sans', sans-serif;
-  color: #fff;
-  height: 40px;
-  font-size: 13px;
-  font-weight: bold;
-  text-align: center;
-  transition: $hover-transition;
-  border-radius: 5px;
-  padding: 14px 80px;
-}
-
-.guest-button:active {
-  top: 2px;
-  box-shadow: 0 2px 0 #02b40b;
-  text-decoration: none;
-}
-.guest-button:hover {
-  background-color: #86db9b;
-  color: #fff;
-  text-decoration: none;
+  padding: 14px 60px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+  &:active {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 /* form footer */
@@ -620,20 +598,8 @@ aside {
 }
 
 .update-button {
-  background: #e77784;
-  box-shadow: 0 4px 0 #e91f37;
-  position: relative;
-  border: none;
-  color: #fff;
-  height: 40px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.2em;
-  text-align: center;
-  letter-spacing: 0.05em;
-  transition: $hover-transition;
+  @include submit-button();
   width: 30%;
-  border-radius: 5px;
-  outline: none
 }
 
 .update-button:active {
@@ -680,20 +646,8 @@ aside {
 }
 
 .recruit-button {
-  background: #e77784;
-  box-shadow: 0 4px 0 #e91f37;
-  position: relative;
-  border: none;
-  color: #fff;
-  height: 40px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.2em;
-  text-align: center;
-  letter-spacing: 0.05em;
-  transition: $hover-transition;
+  @include submit-button();
   width: 30%;
-  border-radius: 5px;
-  outline: none
 }
 
 .recruit-button:active {
@@ -745,6 +699,26 @@ aside {
     font-size: 14px;
     line-height: 20px;
     margin: 5px 0;
+  }
+}
+
+.apply-panel {
+  text-align: center;
+}
+
+.apply-button {
+  @include submit-button();
+  display: inline-block;
+  width: 30%;
+  padding: 10px 60px;
+  margin-bottom: 50px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+  &:active {
+    text-decoration: none;
+    color: white;
   }
 }
 
@@ -889,4 +863,24 @@ aside {
   height: 300px;
   width: 80%;
   margin: 20px 0;
+}
+
+/* message */
+.send-panel {
+  text-align: center;
+}
+
+.mail-container {
+  text-align: center;
+  padding-top: 60px;
+  p {
+    margin-bottom: 60px;
+  }
+  .mail-img {
+    margin-bottom: 50px;
+  }
+  img { 
+    width: 30%;
+    height: 100%;
+  }
 }

@@ -13,7 +13,6 @@ class RecruitsController < ApplicationController
       flash[:notice] = "求人情報の投稿に成功しました！"
       redirect_to user_path(current_user.id)
     else
-      @feed_items = []
       flash.now[:alert] = "求人情報の投稿に失敗しました"
       render new_recruit_path
     end

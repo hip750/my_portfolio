@@ -1,0 +1,81 @@
+<div class="container">
+  <h1>応募フォーム</h1>
+  <%= form_for(@message, url: { action: :confirm }) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <table class="user-edit-table">
+      <tr>
+        <th><b>ユーザーネーム</b></th><br />
+        <td><%= f.text_field :name, autofocus: true, style: "width: 196px;", value: current_user.name %></td>
+      </tr>
+      <tr>
+        <th rowspan="2"><b>名前</b></th>
+        <td>
+          <div class="last-name-layout col-sm-9 form-inline">
+            <label>セイ</label><%= f.text_field :last_name_ruby, autofocus: true, placeholder: "ヤマダ", value: current_user.last_name_ruby %><br />
+            <label>姓</label><%= f.text_field :last_name, autofocus: true, placeholder: "山田", value: current_user.last_name %>
+          </div>  
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="first-name-layout col-sm-9 form-inline">
+            <label>メイ</label><%= f.text_field :first_name_ruby, autofocus: true, placeholder: "タロウ", value: current_user.first_name_ruby %><br />
+            <label>名</label><%= f.text_field :first_name, autofocus: true, placeholder: "太郎", value: current_user.first_name %>
+          </div>  
+        </td>
+      </tr>
+      <tr>
+        <th><b>メールアドレス</b></th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 366px;", placeholder: "medpot@example.com", value: current_user.email %></td>
+      </tr>
+      <tr>
+        <th><b>性別</b></th>
+        <td>
+          <label><%= f.radio_button :gender, "男性", value: current_user.gender %> 男性 </label>
+          <label><%= f.radio_button :gender, "女性", value: current_user.gender %> 女性 </label>
+        </td>
+      </tr>
+      <tr>
+        <th><b>年齢</b></th><br />
+        <td><%= f.select :age, (18..100).map { |n| [n, n] }, include_blank: "選択してください", value: current_user.age %></td>
+      </tr>
+      <tr>
+        <th><b>住所</b></th>
+        <td>
+          <%= f.label :postcode %><br />
+          <%= f.text_field :postcode, autofocus: true, placeholder: "1231234", id: "user_postcode", value: current_user.postcode %><br /><br />
+          <%= f.label :prefecture_code %><br />
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, id: "user_prefecture_code", value: current_user.prefecture_code %><br /><br />
+          <%= f.label :city %><br />
+          <%= f.text_field :city, autofocus: true, style: "width: 366px;", id: "user_city", value: current_user.city %><br /><br />
+          <%= f.label:street %><br />
+          <%= f.text_field :street, autofocus: true, style: "width: 366px;", id: "user_street", value: current_user.street %><br /><br />
+        </td> 
+      </tr>
+      <tr>
+        <th><b>電話番号</b></th>
+        <td><%= f.text_field :phone_number, autofocus: true, placeholder: "09012345678", value: current_user.phone_number %></td>
+      </tr>
+      <tr>
+        <th><b>所有資格</b></th>
+        <td><%= f.text_area :license, rows: "5", cols: "50", placeholder: "・正看護師", value: current_user.license %></td>
+      </tr>
+      <tr>
+        <th><b>経歴</b></th>
+        <td><%= f.text_area :career, rows: "5", cols: "50", placeholder: "病院勤務：5年", value: current_user.career %></td>
+      </tr>
+      <tr>
+        <th><b>勤務可能日・時間</b></th>
+        <td><%= f.text_area :work_times, rows: "5", cols: "50", placeholder: "平日:10 〜 16時", value: current_user.work_times %></td>
+      </tr>
+      <tr>
+        <th><b>自己PR</b></th>
+        <td><%= f.text_area :self_promotion, rows: "10", cols: "60", value: current_user.self_promotion %></td>
+      </tr>
+    </table>
+
+    <div class="apply-panel">
+      <%= f.submit "確認画面へ", class: "apply-button" %>
+    </div>
+  <% end %>
+</div>

@@ -61,6 +61,10 @@
       </tr>
     </table>
 
+    <div class="apply-panel">
+      <%= link_to "応募する", recruit_apply_form_path(@recruit), class: "apply-button" %>
+    </div>
+
     <div class="reviews">
       <div id="reviews_area">
         <%= render "reviews/review", { reviews: @reviews } %>
