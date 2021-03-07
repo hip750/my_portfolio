@@ -1,7 +1,23 @@
 User.create!( name: "Example User",
               email:"example@rails.org",
               password: "foobar",
-              password_confirmation: "foobar")
+              password_confirmation: "foobar",
+              first_name: "太郎",
+              last_name: "山田",
+              first_name_ruby: "タロウ",
+              last_name_ruby: "ヤマダ",
+              gender: "男",
+              birthday: "1991-1-1",
+              age: "30",
+              license: "理学療法士",
+              career: "理学療法士7年",
+              postcode: "5420012",
+              prefecture_code: "大阪府",
+              city: "大阪市中央区",
+              street: "谷町9丁目",
+              phone_number: "09012341234",
+              work_times: "平日9時〜17時",
+              self_promotion: "頑張りますのでよろしくお願いします。")
 
 24.times do |n|
   name  = Faker::Name.name
