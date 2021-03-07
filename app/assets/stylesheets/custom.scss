@@ -3,6 +3,7 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
+@import 'responsive/*';
 
 /* variables */
 $base-color: #ccc4a1;
@@ -31,6 +32,37 @@ $hover-transition: all 0.3s ease-in-out;
   &:active {
     top: 2px;
     box-shadow: 0 2px 0 $boxColor;
+  }
+}
+
+@mixin table-style($thColor: #fff0f9) {
+  table-layout: fixed;
+  width: 100%;
+  border:1px solid #ddd;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  th {
+    width: 30%;
+    background: $thColor;
+    padding:10px;
+    border:1px solid $gray-light;
+  }
+  td {
+    width: 70%;
+    padding:10px 20px;
+    border:1px solid $gray-light;
+  }
+  p {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 5px 0;
+  }
+  input {
+    width: 80%;
+  }
+  textarea {
+    width: 80%;
   }
 }
 
@@ -85,15 +117,6 @@ h1 {
   text-align: center;
 }
 
-// h2 {
-//   font-size: 1.2em;
-//   letter-spacing: -1px;
-//   margin-bottom: 30px;
-//   text-align: center;
-//   font-weight: normal;
-//   color: $gray-light;
-// }
-
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -108,7 +131,7 @@ a {
   background-image: url("/images/medpot_top.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: left bottom 30%;
+  background-position: 0px -160px;
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -213,12 +236,19 @@ header {
 }
 
 .dropdown-menu {
-  background: $base-color;
+  background: $base-color !important;
+  li {
+    margin: 10px 0;
+  }
   a {
     &:hover {
       color: $gray-light !important;
     }
   }
+}
+
+.fa-bars {
+  color: white;
 }
 
 /* footer */
@@ -370,7 +400,7 @@ form {
 .twitter-button {
   @include submit-button(#008DDE, #0078BD, #1397D8);
   display: block;
-  padding: 14px 50px;
+  padding: 14px 0;
   &:hover {
     text-decoration: none;
     color: white;
@@ -438,7 +468,7 @@ form {
   margin:  5px 0;
 }
 
-/* sidebar */
+/* users show */
 
 aside {
   section.user_name {
@@ -470,12 +500,12 @@ aside {
   margin-top: 15px;
 }
 
-/* users show */
 
 .user_info {
   border: $gray-medium-light solid 2px ;
   border-radius: 5px;
   margin-top: 40px;
+  padding: 15px;
   p {
     margin-left: 20px;
     color: #adadad;
@@ -532,29 +562,8 @@ aside {
 
 /* users edit */
 
-.user-edit-table {
-  table-layout: fixed;
-  width: 100%;
-  border:1px solid #ddd;
-  border-collapse: collapse;
-  margin-bottom: 40px;
-  th {
-    width: 30%;
-    background:#fff0f9;
-    padding:10px;
-    border:1px solid $gray-light;
-  }
-  td {
-    width: 70%;
-    padding:10px 20px;
-    border:1px solid $gray-light;
-  }
-  p {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 5px 0;
-  }
+.user-table {
+  @include table-style();
 }
 
 .last-name-layout {
@@ -602,43 +611,13 @@ aside {
   width: 30%;
 }
 
-.update-button:active {
-  top: 2px;
-	box-shadow: 0 2px 0 #e91f37;
-}
-
-.update-button:hover {
-  background: #e78c96;
-}
-
 .back {
   padding: 2em 1.5em;
 }
 
 /* recruit create */
 .recruit-table {
-  table-layout: fixed;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-collapse: collapse;
-  margin-bottom: 50px;
-  th {
-    width: 30%;
-    background:#d2eef7;
-    padding:10px;
-    border:1px solid $gray-light;
-  }
-  td {
-    width: 70%;
-    padding:10px 20px;
-    border:1px solid $gray-light;
-  }
-  p {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 5px 0;
-  }
+  @include table-style($thColor: #d2eef7);
 }
 
 .recruit-panel {
@@ -648,15 +627,6 @@ aside {
 .recruit-button {
   @include submit-button();
   width: 30%;
-}
-
-.recruit-button:active {
-  top: 2px;
-	box-shadow: 0 2px 0 #e91f37;
-}
-
-.recruit-button:hover {
-  background: #e78c96;
 }
 
 /* recruit show */
@@ -678,28 +648,9 @@ aside {
 }
 
 .recruit-show-table {
-  table-layout: fixed;
+  @include table-style($thColor: #d2eef7);
   width: 690px;
-  border:1px solid #ddd;
-  border-collapse: collapse;
   margin: 0 auto 50px;
-  th {
-    width: 30%;
-    background:lightblue;
-    padding:10px;
-    border:1px solid $gray-light;
-  }
-  td {
-    width: 70%;
-    padding:10px 20px;
-    border:1px solid $gray-light;
-  }
-  p {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 5px 0;
-  }
 }
 
 .apply-panel {
@@ -739,6 +690,17 @@ aside {
 
 #star {
   margin-bottom: 20px;
+}
+
+.review-field {
+  text-align: center;
+  textarea {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  input {
+    display: inline-block;
+  }
 }
 
 /* recruit index */
@@ -830,7 +792,7 @@ aside {
   text-decoration: none;
   }
 
-  /* search */
+/* search */
 
 .search_container{
   text-align: center;
@@ -866,6 +828,10 @@ aside {
 }
 
 /* message */
+.message-table {
+  @include table-style();
+}
+
 .send-panel {
   text-align: center;
 }

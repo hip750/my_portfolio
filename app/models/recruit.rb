@@ -43,7 +43,7 @@ class Recruit < ApplicationRecord
 
   #住所の結合
   def address
-    prefecture_name + city + street
+    "%s%s%s"%([self.prefecture_name,self.city,self.street])
   end
 
 end

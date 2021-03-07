@@ -2,9 +2,19 @@
 
 <div class="container">
   <div class="row">
-    <aside class="user_info col-md-4">
-      <%= render "user_info" %>
-    </aside>
+  <div class="collapse-btn col-md-4">
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseAside" role="button" aria-expanded="false" aria-controls="collapseAside">
+      メニュー <i class="fas fa-sort-down fa-lg"></i>
+    </a>
+
+    <div class="collapse" id="collapseAside">
+      <div class="card card-body">
+        <aside class="user_info">
+          <%= render "user_info" %>
+        </aside>
+      </div>
+    </div>
+  </div>
   
     <div class="col-md-8">
       <h1>お気に入り一覧（<%= @like_recruits.count %>）</h1>

@@ -4,10 +4,10 @@
       <%= f.label :evaluation, "評価：" %>
       <%= f.hidden_field :evaluation, id: :review_star %>
     </div>
-    <div class="field">
+    <div class="review-field">
       <%= f.text_area :content, rows: "10", cols: "60", class: 'input', placeholder: "レビュー内容" %>
-    </div>
       <%= f.submit "レビューを投稿", class: 'btn btn-primary' %>
+    </div>
   <% end %>
 <% end %>
 

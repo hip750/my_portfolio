@@ -24,13 +24,15 @@ class MessagesController < UsersController
       render :action => 'done'
     end
   end
-  
+
   private
-  
+
   def message_params
-    params.require(:message).permit(:name, :email, :first_name, :last_name, :first_name_ruby,
-                                    :last_name_ruby, :gender, :age, :license, :career, :postcode,
-                                    :prefecture_code, :city, :street, :phone_number, :self_promotion,
-                                    :work_times)
+    params.require(:message).permit(
+      :name, :email, :first_name, :last_name, :first_name_ruby,
+      :last_name_ruby, :gender, :age, :license, :career, :postcode,
+      :prefecture_code, :city, :street, :phone_number, :self_promotion,
+      :work_times
+    )
   end
 end

@@ -29,13 +29,6 @@ RSpec.describe "StaticPages", type: :request do
     end
   end
 
-  describe "GET /contact" do
-    it "正常なレスポンスを返すこと" do
-      get contact_path
-      expect(response).to have_http_status :success
-    end
-  end
-
   describe "GET /signup" do
     it "正常なレスポンスを返すこと" do
       get new_user_registration_path

@@ -1,7 +1,7 @@
 <div class="container">
   <%= form_for @message, :url => recruit_done_path(@recruit) do |f| %>
     <h1>応募内容の確認</h1>  
-    <table class="user-edit-table">
+    <table class="user-table">
       <tr>
         <th><b>ユーザーネーム</b></th><br />
         <td><%= f.hidden_field :name %><%= @message.name %></td>

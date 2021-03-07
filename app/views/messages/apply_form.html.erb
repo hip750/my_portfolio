@@ -2,10 +2,10 @@
   <h1>応募フォーム</h1>
   <%= form_for(@message, url: { action: :confirm }) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-    <table class="user-edit-table">
+    <table class="user-table">
       <tr>
         <th><b>ユーザーネーム</b></th><br />
-        <td><%= f.text_field :name, autofocus: true, style: "width: 196px;", value: current_user.name %></td>
+        <td><%= f.text_field :name, autofocus: true, value: current_user.name %></td>
       </tr>
       <tr>
         <th rowspan="2"><b>名前</b></th>
@@ -26,7 +26,7 @@
       </tr>
       <tr>
         <th><b>メールアドレス</b></th>
-        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 366px;", placeholder: "medpot@example.com", value: current_user.email %></td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "medpot@example.com", value: current_user.email %></td>
       </tr>
       <tr>
         <th><b>性別</b></th>
@@ -47,9 +47,9 @@
           <%= f.label :prefecture_code %><br />
           <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, id: "user_prefecture_code", value: current_user.prefecture_code %><br /><br />
           <%= f.label :city %><br />
-          <%= f.text_field :city, autofocus: true, style: "width: 366px;", id: "user_city", value: current_user.city %><br /><br />
+          <%= f.text_field :city, autofocus: true, id: "user_city", value: current_user.city %><br /><br />
           <%= f.label:street %><br />
-          <%= f.text_field :street, autofocus: true, style: "width: 366px;", id: "user_street", value: current_user.street %><br /><br />
+          <%= f.text_field :street, autofocus: true, id: "user_street", value: current_user.street %><br /><br />
         </td> 
       </tr>
       <tr>
@@ -58,19 +58,19 @@
       </tr>
       <tr>
         <th><b>所有資格</b></th>
-        <td><%= f.text_area :license, rows: "5", cols: "50", placeholder: "・正看護師", value: current_user.license %></td>
+        <td><%= f.text_area :license, rows: "5", placeholder: "・正看護師", value: current_user.license %></td>
       </tr>
       <tr>
         <th><b>経歴</b></th>
-        <td><%= f.text_area :career, rows: "5", cols: "50", placeholder: "病院勤務：5年", value: current_user.career %></td>
+        <td><%= f.text_area :career, rows: "5", placeholder: "病院勤務：5年", value: current_user.career %></td>
       </tr>
       <tr>
         <th><b>勤務可能日・時間</b></th>
-        <td><%= f.text_area :work_times, rows: "5", cols: "50", placeholder: "平日:10 〜 16時", value: current_user.work_times %></td>
+        <td><%= f.text_area :work_times, rows: "5", placeholder: "平日:10 〜 16時", value: current_user.work_times %></td>
       </tr>
       <tr>
         <th><b>自己PR</b></th>
-        <td><%= f.text_area :self_promotion, rows: "10", cols: "60", value: current_user.self_promotion %></td>
+        <td><%= f.text_area :self_promotion, rows: "10", value: current_user.self_promotion %></td>
       </tr>
     </table>
 

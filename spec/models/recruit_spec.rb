@@ -97,4 +97,17 @@ RSpec.describe Recruit, type: :model do
       expect(Recruit.first).to eq recruit_4
     end
   end
+
+  describe "dependent: :destroy" do
+    before do
+      user.save
+      user.recruits.create!(co_name: "Aクリニック", description: "Aクリニックです。")
+    end
+
+    it "userが削除されたらrecruitも削除されること" do
+      expect do
+        user.destroy
+      end.to change(Recruit, :count).by(-1)
+    end
+  end
 end
