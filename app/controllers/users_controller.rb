@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @recruits = @user.recruits.paginate(page: params[:page], per_page: 20)
     @recruit  = current_user.recruits.build
     @like_recruits = @user.like_recruits.paginate(page: params[:page], per_page: 20)
+    @recruit_id = Recruit.find_by(id: params[:id])
   end
 
   private

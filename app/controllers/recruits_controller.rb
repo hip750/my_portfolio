@@ -30,7 +30,7 @@ class RecruitsController < ApplicationController
   end
 
   def edit
-    @recruit = Recruit.find_by(params[:id])
+    @recruit = Recruit.find(params[:id])
   end
 
   def update

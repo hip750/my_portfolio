@@ -4,7 +4,7 @@
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 600px) and (max-width: 1024px) {
   /* variables */
   $base-color: #ccc4a1;
   $gray-medium-light: #eaeaea;
