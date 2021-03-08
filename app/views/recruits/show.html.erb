@@ -1,3 +1,5 @@
+<% provide(:title, @recruit.co_name) %>
+
 <div class="container">
   <div class="recruit-show-container">
     <h1><%= @recruit.co_name %></h1>
@@ -78,7 +80,7 @@
 
 <script>
   function initMap() {
-    let test = { lat: <%= @recruit.latitude %>, lng: <%= @recruit.longitude %>};
+    let test = { lat: 35.68217, lng: 139.69369 };
     let map = new google.maps.Map(document.getElementById('map'), {
               zoom: 15, 
               center: test
@@ -92,7 +94,7 @@
     });
 
     let marker = new google.maps.Marker({
-                  position:test,
+                  position: test,
                   map: map,
                   title: contentString
                 });

@@ -131,7 +131,7 @@ a {
   background-image: url("/images/medpot_top.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0px -160px;
+  background-position: 0px -120px;
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -192,6 +192,7 @@ a {
     text-decoration: none;
     color: white;
     &:hover {
+      text-decoration: none;
       color: $base-color;
     }
   }
@@ -219,6 +220,10 @@ header {
   &:hover {
     text-decoration: none;
   }
+}
+
+.dropdown-menu-right {
+  padding: 5px 10px 0 0;
 }
 
 .header-list {
@@ -823,7 +828,7 @@ aside {
 /* google API */
 #map {
   height: 300px;
-  width: 80%;
+  width: 100%;
   margin: 20px 0;
 }
 

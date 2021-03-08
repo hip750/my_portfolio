@@ -1,6 +1,6 @@
 class Recruit < ApplicationRecord
   geocoded_by :address
-  after_validation :geocode
+  after_validation :geocode, if: :address_changed?
 
   belongs_to :user
   has_many :likes, dependent: :destroy
@@ -43,7 +43,6 @@ class Recruit < ApplicationRecord
 
   #住所の結合
   def address
-    "%s%s%s"%([self.prefecture_name,self.city,self.street])
+    [prefecture_name, city, street].compact.join('')
   end
-
 end
