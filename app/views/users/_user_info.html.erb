@@ -17,6 +17,12 @@
       <% end %><br />
     </li>
     <li>
+      <%= link_to edit_recruit_path(recruit) do %>
+        <i class="fas fa-wrench fa-lg"></i>&nbsp;
+        <span>求人情報の編集</span>
+      <% end %><br />
+    </li>
+    <li>
       <%= link_to recruits_path do %>
         <i class="fa fa-search fa-lg"></i>&nbsp;
         <span>求人情報を探す</span>

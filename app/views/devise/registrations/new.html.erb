@@ -30,6 +30,11 @@
             <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation" %>
           </div>
 
+          <div class="terms_of_service text-center">
+            <%= link_to "利用規約", terms_of_service_path %> / 
+            <%= link_to "プライバシーポリシー", privacy_policy_path %>
+          </div>
+
           <div class="submit-panel">
             <%= f.submit "サインアップ", class: "submit-button" %>
           </div>

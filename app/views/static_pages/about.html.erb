@@ -1,6 +1,46 @@
 <% provide(:title, "About") %>
 
 <div class="container">
-  <h1>StaticPages#about</h1>
-  <p>Find me in app/views/static_pages/about.html.erb</p>
+  <div class="about">
+    <h1 class="about-title"><span>What's Medpod？</span></h1>
+    <div class="about-description">
+      <p>医療・介護</p>
+      <p>×</p>
+      <p>スキマバイト</p>
+      <p>マッチングサービス</p>
+    </div>
+    <hr>
+    <h2>STEP</h2>
+    <ul class="how-to-use">
+      <li>
+        <p>１. まずは簡単会員登録！</p>
+        <i class="fas fa-user-plus fa-6x"></i>
+      </li>
+      <li>
+        <i class="fas fa-angle-double-down fa-3x"></i>
+      </li>
+      <li>
+        <p>２. プロフィールを登録！</p>
+        <i class="far fa-file-alt fa-6x"></i>
+      </li>
+      <li>
+        <i class="fas fa-angle-double-down fa-3x"></i>
+      </li>
+      <li>
+        <p>３. 求人情報を検索！</p>
+        <i class="fa fa-search fa-6x"></i>
+      </li>
+      <li>
+        <i class="fas fa-angle-double-down fa-3x"></i>
+      </li>
+      <li>
+        <p>４. プロフィールを送信！</p>
+        <i class="far fa-paper-plane fa-6x"></i>
+      </li>
+    </ul>
+
+    <div class="about-signup-panel">
+      <p><%= link_to "新規登録", new_user_registration_path %> にすすむ</p>
+    </div>
+  </div>
 </div>

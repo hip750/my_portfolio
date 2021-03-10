@@ -108,4 +108,7 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+
+  #google analytics
+  GA.tracker = ENV['GOOGLE_TRACKING_ID']
 end

@@ -75,7 +75,7 @@
   }
 
   /* home */
-  .jumbotron {
+  .home {
     background-position: -180px -60px;
     .img-text{
       top: 500px;
@@ -86,9 +86,18 @@
 
   .img-button {
     position: absolute;
-    top: 500px;
+    top: 470px;
     right: 210px;
     font-size: 10px;
+    .img-button-1 {
+      padding: 3px 30px 5px 40px;
+    }
+    .img-button-2 {
+      padding: 3px 30px 5px 40px;
+    }
+    .img-button-3 {
+      padding: 3px 30px 5px 40px;
+    }
   }
 
   /* header */
@@ -124,6 +133,15 @@
         &:nth-of-type(-n+2) {
           display: none;
         }
+      }
+    }
+  }
+
+  /* about */
+  .about {
+    ul { 
+      li {
+        width: 90%;
       }
     }
   }
