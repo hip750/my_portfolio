@@ -17,9 +17,11 @@
       <% end %><br />
     </li>
     <li>
-      <%= link_to edit_recruit_path(recruit) do %>
-        <i class="fas fa-wrench fa-lg"></i>&nbsp;
-        <span>求人情報の編集</span>
+      <% @recruits.each do |recruit| %>
+        <%= link_to edit_recruit_path(recruit.id) do %>
+          <i class="fas fa-wrench fa-lg"></i>&nbsp;
+          <span>求人情報の編集</span>
+        <% end %>
       <% end %><br />
     </li>
     <li>

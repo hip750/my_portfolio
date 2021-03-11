@@ -33,7 +33,7 @@
       </div>
       
       <span class="timestamp">
-        最終更新: <%= time_ago_in_words(recruit.updated_at) %>前&emsp;
+        最終更新: <%= recruit.updated_at.to_s(:date_jp) %>&emsp;
       </span>
 
       <% if current_user?(recruit.user) %>
@@ -45,7 +45,7 @@
 
         <span class="trash-btn">
           <%= link_to recruit, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
-            <i class="fas fa-trash-alt fa-lg"></i>
+            <i class="fas fa-trash-alt fa-lg"></i>&emsp;
           <% end %>
         </span>
       <% end %>

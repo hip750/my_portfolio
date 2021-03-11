@@ -4,14 +4,14 @@ RSpec.describe "Users", type: :request do
     let(:user_params) { attributes_for(:user) }
     let(:invalid_user_params) { attributes_for(:user, name: "") }
 
-    describe "GET /users/sign_up" do
+    describe "User#new" do
       it "リクエストが成功すること" do
         get new_user_registration_path
         expect(response).to have_http_status :success
       end
     end
 
-    describe "POST /users" do
+    describe "User#create" do
       context "正しいパラメーターの場合" do
         it "createが成功すること" do
           aggregate_failures do
@@ -36,10 +36,10 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    describe "GET /users/show" do
+    describe "User#show" do
       context "ユーザーが存在する場合" do
         it "アクセスが成功すること" do
-          sign_in user
+          sign_in(user)
           get user_path(user)
           expect(response).to have_http_status :success
         end
@@ -53,7 +53,7 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    describe "DELETE /logout" do
+    describe "User#destroy" do
       it 'deleteが成功すること' do
         sign_in user
         delete destroy_user_session_path
@@ -64,7 +64,7 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    describe "GET users/edit" do
+    describe "User#edit" do
       it "アクセスが成功すること" do
         sign_in user
         get edit_user_registration_path
@@ -72,12 +72,11 @@ RSpec.describe "Users", type: :request do
       end
     end
 
-    # describe 'PUT #update' do
-    #   it '正しいページにリダイレクトされること' do
-
-    #     post user_registration_path, params: { user: user_params }
-    #     expect(response).to redirect_to user_path(user.id - 1)
-    #   end
-    # end
+    describe 'User#update' do
+      it '正しいページにリダイレクトされること' do
+        post user_registration_path, params: { user: user_params }
+        expect(response).to redirect_to user_path(user.id - 1)
+      end
+    end
   end
 end

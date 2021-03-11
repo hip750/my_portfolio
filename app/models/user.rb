@@ -15,7 +15,6 @@ class User < ApplicationRecord
                     format: { with: Const::VALID_EMAIL_REGEX },
                     uniqueness: true
   validates :password, presence: true, length: { minimum: 6 },
-                       # format: { with: Const::VALID_PASSWORD_REGEX },
                        allow_nil: true
   validates :first_name, length: { maximum: 50 }
   validates :last_name, length: { maximum: 50 }
