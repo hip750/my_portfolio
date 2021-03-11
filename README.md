@@ -23,7 +23,7 @@ Medpodは医療・介護職の方と企業・法人を繋ぐアルバイトの�
 
 # 使用技術
 
-<img width="1440" alt="ss_technology" src="https://user-images.githubusercontent.com/66853444/110805768-bfeb4580-82c4-11eb-994e-9b7a193687cf.png">
+<img width="100%" alt="ss_technology" src="https://user-images.githubusercontent.com/66853444/110805768-bfeb4580-82c4-11eb-994e-9b7a193687cf.png">
 
 * Ruby '2.5.3'
 * Rails '5.2.4'  
@@ -39,13 +39,17 @@ dockerで環境構築を行い、Circle CIでテスト(RSpec)とリンター(rub
 * 簡単にログインできるゲストログイン機能
 * 郵便番号による住所の自動入力機能
 * Maps JavaScript API, Geocoding API を使用したマップの表示
-* gem 'ransack' を使用したフリーワード or 都道府県検索機能
+* gem 'ransack' を使用したフリーワード or 都道府県での検索機能
 * お気に入り追加・解除(ajax)機能
 * 企業・法人の五つ星評価・レビュー機能
 * 求人一覧のページネーション機能
 * Action Mailerを使用した求人への応募機能
 * Google analyticsでの解析
 * レスポンシブ対応  
+<br><br>
+
+# リレーション  
+[ER図.pdf](https://github.com/hip750/my_portfolio/files/6124281/erd.pdf)  
 <br><br>
 
 # ライセンス
