@@ -7,7 +7,7 @@ RSpec.describe MessageMailer, type: :request do
       ActionMailer::Base.deliveries.last
     end
 
-    context 'when send_mail' do
+    context 'メールを送信した場合' do
       it { expect(mail.to.first).to eq(ENV["MAIL_ADDRESS"]) }
       it { expect(mail.subject).to eq("Medpot | 応募メール") }
       it { expect(mail.body).to match(/こちらはMedpodです。/) }

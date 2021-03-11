@@ -19,22 +19,22 @@ class RecruitsController < ApplicationController
   end
 
   def index
-    @recruit = Recruit.find_by(params[:id])
+    @recruit = Recruit.find_by(id: params[:id])
     @recruits = Recruit.paginate(page: params[:page], per_page: 20)
   end
 
   def show
-    @recruit = Recruit.find(params[:id])
+    @recruit = Recruit.find_by(id: params[:id])
     @review = Review.new
     @reviews = @recruit.reviews
   end
 
   def edit
-    @recruit = Recruit.find(params[:id])
+    @recruit = Recruit.find_by(id: params[:id])
   end
 
   def update
-    @recruit = Recruit.find_by(params[:id])
+    @recruit = Recruit.find_by(id: params[:id])
     if @recruit.update(recruit_params)
       flash[:notice] = "求人情報を編集しました"
       redirect_to user_path(current_user.id)
