@@ -43,6 +43,7 @@ dockerで環境構築を行い、Circle CIでテスト(RSpec)とリンター(rub
 * お気に入り追加・解除(ajax)機能
 * 企業・法人の五つ星評価・レビュー機能
 * 求人一覧のページネーション機能
+* 求人情報の画像投稿機能(本番環境にAmazon S3を使用)
 * Action Mailerを使用した求人への応募機能
 * Google analyticsでの解析
 * レスポンシブ対応  
