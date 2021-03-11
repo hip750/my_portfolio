@@ -267,6 +267,27 @@ header {
 }
 
 /* footer */
+.top-btn {
+  position: relative;
+  span {
+    position: absolute;
+    display: block;
+    top: -60px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 50px 50px 50px;
+    border-color: transparent transparent $base-color transparent;
+    a {
+      position: absolute;
+      top: 25px;
+      right: -15px;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
 
 footer {
   width: 100%;

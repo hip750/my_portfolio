@@ -1,7 +1,9 @@
 <section class="user_menu">
   <div class="user-icon">
     <p class="user-name"><%= user.name %></p>
-    <p><%= gravatar_for user %></p>
+    <%= link_to "https://ja.gravatar.com/" do %>
+      <p><%= gravatar_for user %></p>
+    <% end %>
   </div>
   <ul class="user-link">
     <li>
@@ -14,14 +16,6 @@
       <%= link_to new_recruit_path do %>
         <i class="fas fa-hospital fa-lg"></i>&nbsp;
         <span>求人情報の作成</span>
-      <% end %><br />
-    </li>
-    <li>
-      <% @recruits.each do |recruit| %>
-        <%= link_to edit_recruit_path(recruit.id) do %>
-          <i class="fas fa-wrench fa-lg"></i>&nbsp;
-          <span>求人情報の編集</span>
-        <% end %>
       <% end %><br />
     </li>
     <li>

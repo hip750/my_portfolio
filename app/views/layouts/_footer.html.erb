@@ -1,8 +1,17 @@
 <footer class="footer">
+  <% if controller.action_name != "home" %>
+    <div class="top-btn">
+      <span>
+        <%= link_to "TOP", "#" %>
+      </span>
+    </div>
+  <% end %>
+
   <div class="footer-text">
     The <%= link_to "Medpot", root_path %>
     by <%= link_to "hajime.", root_path %>
   </div>
+
   <nav class="footer-link">
     <ul>
       <li><%= link_to "ホーム", root_path %></li>
