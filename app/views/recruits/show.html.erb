@@ -1,0 +1,109 @@
+<% provide(:title, @recruit.co_name) %>
+
+<div class="container">
+  <div class="recruit-show-container">
+    <h1><%= @recruit.co_name %></h1>
+
+    <div class="show-img">
+      <% if @recruit.image.attached? %>
+        <%= image_tag recruit.display_image %>
+      <% else %>
+        <%= image_tag "/images/medpot_top.jpeg", alt: "recruit_top_image" %>
+      <% end %>
+    </div>
+
+    <table class="recruit-show-table">
+      <tr>
+        <th><strong>企業・法人名</strong></th>
+        <td><%= @recruit.co_name %></td>
+      </tr>
+      <tr>
+        <th><strong>タイトル</strong></th>
+        <td><%= @recruit.title %></td>
+      </tr>
+      <tr>
+        <th><strong>説明詳細</strong></th>
+        <td><%= @recruit.description %></td>
+      </tr>
+      <tr>
+        <th><strong>必要資格</strong></th>
+        <td><%= @recruit.required_license %></td>
+      </tr>
+      <tr>
+        <th><strong>給与</strong></th>
+        <td><%= @recruit.pay %></td>
+      </tr>
+      <tr>
+        <th><strong>勤務時間</strong></th>
+        <td><%= @recruit.work_style %></td>
+      </tr>
+      <tr>
+        <th><strong>交通手段</strong></th>
+        <td><%= @recruit.transportation %></td>
+      </tr>
+      <tr>
+        <th><strong>電話番号</strong></th>
+        <td><%= @recruit.phone_number %></td>
+      </tr>
+      <tr>
+        <th><strong>所在地</strong></th>
+        <td>
+          〒<%= @recruit.postcode %><br />
+          <%= @recruit.address %>
+          <div id="map"></div>
+        </td> 
+      </tr>
+      <tr>
+        <th><strong>アクセス</strong></th>
+        <td><%= @recruit.access %></td>
+      </tr>
+      <tr>
+        <th><strong>ウェブサイト</strong></th>
+        <td><%= link_to @recruit.web_site, @recruit.web_site %></td>
+      </tr>
+    </table>
+
+    <div class="apply-panel">
+      <%= link_to "応募する", recruit_apply_form_path(@recruit), class: "apply-button" %>
+    </div>
+
+    <div class="reviews">
+      <div id="reviews_area">
+        <%= render "reviews/review", { reviews: @reviews } %>
+      </div>
+      <div class="review-form">
+        <%= render "reviews/review_form", { review: @review, recruit: @recruit } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initMap() {
+    let test = { lat: 35.68217, lng: 139.69369 };
+    let map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15, 
+              center: test
+              });
+    let transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    let contentString = '住所：<%= @recruit.address %>';
+    let infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    let marker = new google.maps.Marker({
+                  position: test,
+                  map: map,
+                  title: contentString
+                });
+
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+  }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap">
+</script>

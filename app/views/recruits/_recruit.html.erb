@@ -1,0 +1,59 @@
+<%= link_to recruit_path(recruit.id) do %>
+  <li id="recruit-<%= recruit.id %>">
+    <section class="index-img">
+      <% if recruit.image.attached? %>
+        <%= image_tag recruit.display_image, width: '320px', height: '240px' %>
+      <% else %>
+        <%= image_tag "/images/medpot_top.jpeg", alt: "recruit_top_image", width: '320px', height: '240px' %>
+      <% end %>
+    </section>
+
+    <section class="index-content">
+      <div class="recruit-title">
+        <%= recruit.title %>
+      </div>
+
+      <div class="recruit-location">
+        <i class="fa fa-map-marker-alt fa-lg"></i>
+        <%= recruit.prefecture_name %>&emsp;(<%= recruit.access %>)
+      </div>
+
+      <div class="recruit-co-name">
+        <i class="fas fa-hospital fa-lg"></i>
+        <%= recruit.co_name %>
+      </div>
+
+      <div class="recruit-pay">
+        <i class="fas fa-yen-sign fa-lg"></i>
+        <%= recruit.pay %>
+      </div>
+
+      <div class="recruit-show-link">
+        <%= link_to "詳細を見る >>", recruit_path(recruit.id) %>
+      </div>
+      
+      <span class="timestamp">
+        最終更新: <%= recruit.updated_at.to_s(:date_jp) %>&emsp;
+      </span>
+
+      <% if current_user?(recruit.user) %>
+        <span class="edit-btn">
+          <%= link_to edit_recruit_path(recruit.id) do %>
+            <i class="fas fa-wrench fa-lg"></i>
+          <% end %>
+        </span>
+
+        <span class="trash-btn">
+          <%= link_to recruit, method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+            <i class="fas fa-trash-alt fa-lg"></i>&emsp;
+          <% end %>
+        </span>
+      <% end %>
+
+      <span id="likes-btn-<%= recruit.id %>" class="likes-btn">
+        <%= render "likes/like", { recruit: recruit } %>
+      </span>
+
+    </section>
+  </li>
+<% end %>

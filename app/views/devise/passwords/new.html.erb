@@ -1,0 +1,25 @@
+<% provide(:title, "Password reset") %>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="container">
+    <div class="form-wrapper">
+      <div class="form-container">
+        <h1 class="form-title">パスワードリセット</h1>
+        <%= render 'shared/error_messages', object: f.object %>
+        <form>
+          <div class="form-item">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "medpot@exaple.com" %>
+          </div>
+
+          <div class="submit-panel">
+            <%= f.submit "メールを送信", class: "submit-button" %>
+          </div>
+        </form>
+        <div class="form-footer">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

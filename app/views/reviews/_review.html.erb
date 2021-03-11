@@ -1,0 +1,38 @@
+<h2>レビュー(<%= reviews.count %>)</h2>
+<% reviews.each do |review| %>
+  <div class="review-name">
+    <%= link_to review.user.name, [review.user] %>
+  </div>
+  <div class="review-raty">
+    <span id="star-rate-<%= review.id %>"></span>
+    <%= review.evaluation %>
+  </div>
+  <div class="review-content">
+    <%= review.content %>
+  </div>
+  <div class="review-delete">
+    <% if review.user == current_user %>
+        <%= time_ago_in_words(review.created_at) %>前 &emsp;|&emsp;
+        <%= link_to recruit_review_path(review.recruit_id, review.id), method: :delete, data: { confirm: "本当にレビューを削除しますか？" } do %>
+          <span><i class="fas fa-trash-alt fa-lg"></i></span>
+        <% end %>
+        <hr>
+    <% else %>
+        <%= time_ago_in_words(review.created_at) %>前
+        <hr>
+    <% end %>
+  </div>
+
+  <script>
+    jqOther('#star-rate-<%= review.id %>').raty({
+      size: 26,
+      starOff: "<%= asset_path('raty/star-off.png') %>",
+      starOn: "<%= asset_path('raty/star-on.png') %>",
+      starHalf: "<%= asset_path('raty/star-half.png') %>",
+      half: true,
+      readOnly: true,
+      score: "<%= review.evaluation %>"
+    });
+  </script>
+
+<% end %>

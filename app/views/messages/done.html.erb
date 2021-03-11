@@ -1,0 +1,17 @@
+<% provide(:title, "Complete") %>
+
+<div class="container">
+  <div class="mail-container">
+    <h1>応募が完了しました！</h1>
+    <p>求人元からのメッセージをお待ちください</p>
+    <div class="mail-img">
+      <%= image_tag 'mail.jpg' %>
+    </div>
+
+    <div class="back">
+      <%= link_to user_path(current_user.id) do %>
+        <i class="fas fa-chevron-left"></i> マイページにもどる
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<% provide(:title, "Confirm") %>
+
+<div class="container">
+  <%= form_for @message, :url => recruit_done_path(@recruit) do |f| %>
+    <h1>応募内容の確認</h1>  
+    <table class="user-table">
+      <tr>
+        <th><b>ユーザーネーム</b></th><br />
+        <td><%= f.hidden_field :name %><%= @message.name %></td>
+      </tr>
+      <tr>
+        <th><b>名前</b></th>
+        <td>
+          <div class="last-name-layout col-sm-9 form-inline">
+            カナ：<%= f.hidden_field :last_name_ruby %><%= @message.last_name_ruby %> 
+                  <%= f.hidden_field :first_name_ruby %><%= @message.first_name_ruby %><br />
+            漢字：<%= f.hidden_field :last_name %><%= @message.last_name %> 
+                  <%= f.hidden_field :first_name %><%= @message.first_name %>
+          </div>  
+        </td>
+      </tr>
+      <tr>
+        <th><b>メールアドレス</b></th>
+        <td><%= f.hidden_field :email %><%= @message.email %></td>
+      </tr>
+      <tr>
+        <th><b>性別</b></th>
+        <td><%= f.hidden_field :gender %><%= @message.gender %></td>
+      </tr>
+      <tr>
+        <th><b>年齢</b></th><br />
+        <td><%= f.hidden_field :age %><%= @message.age %>歳</td>
+      </tr>
+      <tr>
+        <th><b>住所</b></th>
+        <td>
+          〒<%= f.hidden_field :postcode %><%= @message.postcode %><br />
+          <%= f.hidden_field :prefecture_code %><%= @message.prefecture_name %>
+          <%= f.hidden_field :city %><%= @message.city %>
+          <%= f.hidden_field :street %><%= @message.street %>
+        </td> 
+      </tr>
+      <tr>
+        <th><b>電話番号</b></th>
+        <td><%= f.hidden_field :phone_number %><%= @message.phone_number %></td>
+      </tr>
+      <tr>
+        <th><b>所有資格</b></th>
+        <td><%= f.hidden_field :license %><%= @message.license %></td>
+      </tr>
+      <tr>
+        <th><b>経歴</b></th>
+        <td><%= f.hidden_field :career %><%= @message.career %></td>
+      </tr>
+      <tr>
+        <th><b>勤務可能曜日・時間</b></th>
+        <td><%= f.hidden_field :work_times %><%= @message.work_times %></td>
+      </tr>
+      <tr>
+        <th><b>自己PR</b></th>
+        <td><%= f.hidden_field :self_promotion %><%= @message.self_promotion %></td>
+      </tr>
+    </table>
+
+    <div class="send-panel">
+      <%= f.submit '送信する', class: 'btn btn-primary' %>
+      <%= f.submit '戻る', name: 'back', class: 'btn btn-primary'  %>
+    </div>
+  <% end %>
+</div>

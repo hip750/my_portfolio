@@ -1,20 +1,44 @@
 version: '3'
+volumes:
+  mysql_8_0-data:
+  redis-data:
+  vendor_bundle_2_5_1:
+  vendor_assets_2_7:
+  node_modules:
+
 services:
-  pg:
-    image: postgres
+  mysql:
+    image: mysql:8.0
     environment:
-      POSTGRES_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    ports:
+      - "3300:3306"
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - mysql_8_0-data:/var/lib/mysql
 
   portfolio:
-    build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    volumes:
-      - .:/portfolio
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
       - "3333:3000"
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: mysql
+      REDIS_URL: "redis://redis:6666"
+    volumes:
+      - .:/portfolio
+      - /portfolio/log
+      - /portfolio/tmp
+      - vendor_bundle_2_5_1:/portfolio/vendor/bundle
+      - vendor_assets_2_7:/portfolio/vendor/assets
+      - node_modules:/portfolio/node_modules
     depends_on:
-      - pg
+      - mysql
+    networks:
+      - default
     tty: true
     stdin_open: true
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b '0.0.0.0'"

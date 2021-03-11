@@ -1,0 +1,12 @@
+<% provide(:title, "Recruit create") %>
+
+<div class="container">
+  <h1>求人情報の作成</h1>
+  <%= render "recruit_form", { recruit: @recruit } %>
+  
+  <div class="back">
+    <%= link_to :back do %>
+      <i class="fas fa-chevron-left"></i> もどる
+    <% end %>
+  </div>
+</div>

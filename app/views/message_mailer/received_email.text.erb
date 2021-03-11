@@ -1,0 +1,43 @@
+こちらはMedpodです。
+<%= @message.last_name %> <%= @message.first_name %> 様から応募がありました。
+
+〜プロフィール〜
+
+ユーザーネーム：
+<%= @message.name %>
+
+名前：
+カナ：<%= @message.last_name_ruby %> <%= @message.first_name_ruby %>
+漢字：<%= @message.last_name %> <%= @message.first_name %>
+
+メールアドレス:
+<%= @message.email %>
+
+性別:
+<%= @message.gender %>
+
+年齢:
+<%= @message.age %>歳
+
+住所:
+〒<%= @message.postcode %>
+<%= @message.prefecture_name %><%= @message.city %><%= @message.street %>
+
+電話番号:
+<%= @message.phone_number %>
+
+所有資格:
+<%= @message.license %>
+
+経歴:
+<%= @message.career %>
+
+勤務可能曜日・時間:
+<%= @message.work_times %>
+
+自己PR:
+<%= @message.self_promotion %>
+
+〜〜以上〜〜
+
+Medpod：<a href="https://glacial-falls-70520.herokuapp.com/"></a>

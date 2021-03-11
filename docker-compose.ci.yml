@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    ports:
+      - "3300:3306"
+
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile.ci
+    container_name: portfolio_app
+    ports:
+      - "3333:3000"
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: password
+      MYSQL_HOST: mysql
+      REDIS_URL: "redis://redis:6666"
+    depends_on:
+      - mysql
+    networks:
+      - default
+    command: bundle exec rails server -b 0.0.0.0

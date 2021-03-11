@@ -1,0 +1,8 @@
+<p>Hello <%= @resource.email %>!</p>
+<p>こちらはMedpotです。</p>
+
+<p>サインインの失敗によりアカウントがロックされています。</p>
+
+<p>アカウントのロックを解除するには以下のリンクをクリックしてください。</p>
+
+<p><%= link_to 'アカウントロックの解除', unlock_url(@resource, unlock_token: @token) %></p>
