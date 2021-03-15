@@ -137,15 +137,15 @@ a {
   background-image: url("/images/medpot_top.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0px -120px;
+  background-position: 0px 80%;
   width: 100vw;
   height: 100vh;
   position: relative;
   margin: 0;
   .img-text{
     position: absolute;
-    top: 530px;
-    right: 50px;
+    top: 62%;
+    right: 4%;
     font-size: 40px;
     color: #c0c0c0;
     padding-left: 5px;
@@ -167,8 +167,8 @@ a {
 
 .img-button {
   position: absolute;
-  top: 540px;
-  right: 300px;
+  top: 63.5%;
+  right: 22%;
   font-size: 16px;
   font-family: 'Noto Sans JP', sans-serif;
   .img-button-1 {
