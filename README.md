@@ -1,7 +1,7 @@
-![medpod_logo_lg](https://user-images.githubusercontent.com/66853444/110793416-efe01c00-82b7-11eb-857a-bd48405efc73.png)
+![medpot_lg](https://user-images.githubusercontent.com/66853444/111115686-5612ba80-85a8-11eb-97e0-4ec9d9506f55.png)
 <img width="100%" alt="ss_top" src="https://user-images.githubusercontent.com/66853444/110795247-f7a0c000-82b9-11eb-985a-744c70ee2290.png">
 
-Medpodは医療・介護職の方と企業・法人を繋ぐアルバイトのマッチングサービスです。
+Medpotは医療・介護職の方と企業・法人を繋ぐアルバイトのマッチングサービスです。
 
 :globe_with_meridians: [heroku Pages](https://glacial-falls-70520.herokuapp.com/)  
 <br><br>
