@@ -1,5 +1,5 @@
 ![medpot_lg](https://user-images.githubusercontent.com/66853444/111115686-5612ba80-85a8-11eb-97e0-4ec9d9506f55.png)
-<img width="100%" alt="ss_top" src="https://user-images.githubusercontent.com/66853444/110795247-f7a0c000-82b9-11eb-985a-744c70ee2290.png">
+<img width="1431" alt="ss_top" src="https://user-images.githubusercontent.com/66853444/111117138-75124c00-85aa-11eb-9874-23165a7966cc.png">  
 
 Medpotは医療・介護職の方と企業・法人を繋ぐアルバイトのマッチングサービスです。
 
@@ -18,7 +18,8 @@ Medpotは医療・介護職の方と企業・法人を繋ぐアルバイトの�
 
 **※サインアップなしでもゲストログイン機能がございます。**  
 
-<img width="100%" alt="ss_login" src="https://user-images.githubusercontent.com/66853444/110798648-bb6f5e80-82bd-11eb-9ddf-1eb2876f916f.png">  
+<img width="1430" alt="ss_login" src="https://user-images.githubusercontent.com/66853444/111117181-86f3ef00-85aa-11eb-85ee-f31d3598e199.png">  
+  
 <br><br><br>
 
 # 使用技術
